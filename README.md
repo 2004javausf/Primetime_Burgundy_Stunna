@@ -2,7 +2,7 @@
 
 ## Primetime_Burgundy_Stunna
 
-[Trello board user stories](https://trello.com/b/CZP4kzxC/primetime-burgandy-stunna)
+[Trello board user stories](https://trello.com/b/CZP4kzxC/primetime-burgandy-stunna)  
 [Jenkins](http://ec2-user@ec2-3-133-98-43.us-east-2.compute.amazonaws.com:8080/jenkins)
 
 ### Project outline
