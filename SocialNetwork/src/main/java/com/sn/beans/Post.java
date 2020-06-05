@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 @Table(name="POST")
 public class Post {
 	
-	
+	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="postSequence")
 	@SequenceGenerator(allocationSize=1, name="postSequence", sequenceName="SQ_POST_PK")
 	@Column(name="POST_ID")
 	private int post_id;
 	
-	@Id
+	@Column(name="USERNAME")
 	private String username;
 	
 	@Column(name="TEXT")
