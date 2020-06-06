@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.sn.beans.User;
 import com.sn.repos.UserDAO;
 
-
+@ServletComponentScan
 @SpringBootApplication
 public class SocialNetworkApplication {
 
