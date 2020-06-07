@@ -1,18 +1,31 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { PostComponent } from "./post/post.component";
+import { CommentContainerComponent } from "./comment-container/comment-container.component";
+import { LinkContainerComponent } from "./link-container/link-container.component";
+import { PostContainerComponent } from "./post-container/post-container.component";
+import { CommentFormComponent } from "./comment-form/comment-form.component";
+import { LikeContainerComponent } from "./like-container/like-container.component";
+import { CommentComponent } from './comment/comment.component';
+import { CommentsToggleComponent } from './comments-toggle/comments-toggle.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostComponent,
+    CommentContainerComponent,
+    LinkContainerComponent,
+    PostContainerComponent,
+    CommentFormComponent,
+    LikeContainerComponent,
+    CommentComponent,
+    CommentsToggleComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

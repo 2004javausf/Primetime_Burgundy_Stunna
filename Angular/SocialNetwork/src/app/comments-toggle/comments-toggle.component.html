@@ -1,0 +1,11 @@
+<div class="border">
+  <div class="">Total: {{ comments.length }}</div>
+  <button
+    class="btn btn-primary btn-block"
+    [class.btn-secondary]="!isSelected"
+    [class.btn-success]="isSelected"
+    (click)="onClick()"
+  >
+    Comments
+  </button>
+</div>

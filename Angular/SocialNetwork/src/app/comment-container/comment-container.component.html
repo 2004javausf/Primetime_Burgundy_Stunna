@@ -1,0 +1,9 @@
+<div class="container border">
+  <div class="row">
+    <comment-form></comment-form>
+  </div>
+
+  <div *ngFor="let item of comments">
+    <comment [in]="item"></comment>
+  </div>
+</div>
