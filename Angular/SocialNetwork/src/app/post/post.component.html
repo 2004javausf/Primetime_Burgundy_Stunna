@@ -1,39 +1,41 @@
 <div class="container border">
-  <div class="row bg-primary ht-30">
-    <a class="col-3 close text-left pl-3" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+  <div class="row color2 ht2">
+    <a class="col-3 close text-left pl-3" (click)="postToggled()">
+      <span *ngIf="!showPost">^</span>
+      <span *ngIf="showPost">v</span>
     </a>
     <div class="col-9">{{ post.id }}</div>
   </div>
+  <div *ngIf="showPost">
+    <div class="row">
+      <div class="col-3">
+        <div class="text-center">{{ post.userFullName }}</div>
+        <div [ngStyle]="picture" class="avatar"></div>
+      </div>
 
-  <div class="row">
-    <div class="col-3">
-      <div class="text-center">{{ post.userFullName }}</div>
-      <div [ngStyle]="picture" class="avatar"></div>
+      <div class="col-9">
+        <hr />
+        <link-container [link]="post.link"></link-container>
+        <div class="border">{{ post.text }}</div>
+      </div>
     </div>
 
-    <div class="col-9">
-      <hr />
-      <link-container [link]="post.link"></link-container>
-      <div class="border">{{ post.text }}</div>
+    <div class="border row pb-2">
+      <like-container
+        class="col-6"
+        [isLiked]="post.isLiked"
+        [likeCount]="post.likeCount"
+      ></like-container>
+      <comments-toggle
+        (toggled)="commentsToggled()"
+        class="col-6"
+        [comments]="post.comments"
+      ></comments-toggle>
     </div>
   </div>
 
-  <div class="border row">
-    <like-container
-      class="col-6"
-      [isLiked]="post.isLiked"
-      [likeCount]="post.likeCount"
-    ></like-container>
-    <comments-toggle
-      (toggled)="commentsToggled()"
-      class="col-6"
-      [comments]="post.comments"
-    ></comments-toggle>
-  </div>
+  <comment-container
+    [comments]="post.comments"
+    *ngIf="showComments"
+  ></comment-container>
 </div>
-
-<comment-container
-  [comments]="post.comments"
-  *ngIf="showComments"
-></comment-container>

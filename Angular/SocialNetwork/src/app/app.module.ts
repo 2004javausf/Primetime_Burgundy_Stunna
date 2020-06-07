@@ -11,6 +11,9 @@ import { CommentFormComponent } from "./comment-form/comment-form.component";
 import { LikeContainerComponent } from "./like-container/like-container.component";
 import { CommentComponent } from './comment/comment.component';
 import { CommentsToggleComponent } from './comments-toggle/comments-toggle.component';
+import { PostContainerFeedComponent } from './post-container-feed/post-container-feed.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { UserContentInputFormComponent } from './user-content-input-form/user-content-input-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { CommentsToggleComponent } from './comments-toggle/comments-toggle.compo
     LikeContainerComponent,
     CommentComponent,
     CommentsToggleComponent,
+    PostContainerFeedComponent,
+    PostFormComponent,
+    UserContentInputFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

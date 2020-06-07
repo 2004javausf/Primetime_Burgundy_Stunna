@@ -12,8 +12,13 @@
   height: 50px;
   background-size: cover;
 }
-.ht-30 {
+.ht1 {
+  height: 38px;
+  border-radius: 5px;
+}
+.ht2 {
   height: 30px;
+  border-radius: 5px;
 }
 .col-3 {
   min-width: 100px;
@@ -25,4 +30,14 @@
 #postContainer {
   max-width: 600px;
   min-width: 500px;
+}
+textarea {
+  width: -webkit-fill-available;
+  resize: none;
+}
+.color1 {
+  background-color: gray;
+}
+.color2 {
+  background-color: lightgray;
 }

@@ -1,8 +1,4 @@
 <div id="postContainer" class="container border">
-  <div class="container ht-30 bg-secondary border-bottom border-dark">
-    Post Container
-  </div>
-  <div *ngFor="let item of posts">
-    <post [in]="item"></post>
-  </div>
+  <post-form></post-form>
+  <post-container-feed></post-container-feed>
 </div>
