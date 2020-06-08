@@ -5,28 +5,37 @@
   <div class="row">
     <div class="col-3">
       <div class="border">My profile toggle</div>
+      <button (click)="toggle()" id="bt">{{buttonName}}</button>
       <div class="border">
-        modify info toggle
+        modify info toggle<br>
+        <button (click)="toggle2()" id="bt2">{{buttonName2}}</button>
         <ul>
           <li>Upload Profile Pic</li>
         </ul>
       </div>
       <div class="border">search the network toggle</div>
+      <button (click)="toggle3()" id="bt3">{{buttonName3}}</button>
     </div>
     <div class="col-9">
-      <div class="border">
-        Display this box if "My Profile" is selected
-        <div>Profile Information Component</div>
-        <post-container></post-container>
-      </div>
+      <ng-container *ngIf="show"> 
+        <div class="border">
+          Display this box if "My Profile" is selected
+          <div>Profile Information Component</div>
+          <post-container></post-container>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="show2"> 
       <div class="border">
         Display this box if "Modify Info" is selected
         <div>Modify Info Component</div>
       </div>
+    </ng-container>
+    <ng-container *ngIf="show3"> 
       <div class="border">
         Display this box if "Search Network" is selected
         <div>Search Network Component</div>
       </div>
+    </ng-container>
       <div class="border">
         Display this box if "Search Network/userId" is selected
         <div>Users Profile Component</div>
