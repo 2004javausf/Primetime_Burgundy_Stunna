@@ -1,26 +1,27 @@
-<div class="container ht1 color1">
-  Post Container Form
-</div>
 <div class="row pb-2">
   <div class="col-3">
     <div class="text-center">{{ user.fullName }}</div>
     <div [ngStyle]="picture" class="avatar"></div>
   </div>
+
   <div class="col-9">
     <form>
       <textarea
         class="form-control"
-        placeholder="Please enter your post"
+        [placeholder]="placeholderText"
         name="input"
         id=""
         cols="30"
         rows="4"
       ></textarea>
-      <input
-        type="submit"
-        class="btn btn-primary ht2 p-0 btn-block"
-        value="submit"
-      />
+      <div class="row container">
+        <input type="file" name="image" id="image" class="col-6" />
+        <input
+          type="submit"
+          class="col-6 btn btn-primary ht2 p-0 btn-block"
+          value="submit"
+        />
+      </div>
     </form>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'user-content-input-form',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-content-input-form.component.css'],
 })
 export class UserContentInputFormComponent implements OnInit {
+  @Input('type') type;
+  placeholderText;
+
   user = {
     fullName: 'user.fullName',
     picture:
@@ -15,6 +18,7 @@ export class UserContentInputFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    this.placeholderText = `Please enter your ${this.type}`;
     this.picture = {
       'background-image': 'url(' + this.user.picture + ')',
     };

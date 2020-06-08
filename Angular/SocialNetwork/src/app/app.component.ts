@@ -1,11 +1,29 @@
-import { Component } from "@angular/core";
+import { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"],
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {}
+
+//HttpClient Example
+// url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/users';
+// testText;
+// constructor(private http: HttpClient) {}
+
+// ngOnInit() {
+//   this.http.get(this.url).subscribe(
+//     (response) => response,
+//     (error) => {
+//       console.log((this.testText = error.error.text));
+//     }
+//   );
+// }
+
+//Angular Basics
 // <div>
 //   <div>total:{{ myTotal }}</div>
 
