@@ -1,12 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  constructor() {}
+  url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user';
+  constructor(private httpClient: HttpClient) {}
   getPostIDsByUser(userID) {
     return ['post.id'];
+  }
+  addUser(user) {
+    this.httpClient.post(this.url + '/adduser', user);
   }
   getPost() {
     return [

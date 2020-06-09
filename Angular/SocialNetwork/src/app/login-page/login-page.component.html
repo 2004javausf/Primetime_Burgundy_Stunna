@@ -41,9 +41,36 @@
   >
     <input
       ngModel
+      #username="ngModel"
+      required
+      placeholder="username"
+      type="text"
+      name="username"
+    />
+
+    <input
+      ngModel
+      #password="ngModel"
+      required
+      placeholder="Password"
+      type="pasword"
+      name="password"
+    />
+    <br />
+    <input
+      ngModel
+      #email="ngModel"
+      required
+      placeholder="email"
+      type="email"
+      name="email"
+    />
+    <br />
+    <input
+      ngModel
       #firstName="ngModel"
       required
-      placeholder="First Name"
+      placeholder="firstName"
       type="text"
       name="firstName"
     />
@@ -52,18 +79,9 @@
       ngModel
       #lastName="ngModel"
       required
-      placeholder="Last Name"
+      placeholder="lastName"
       type="text"
       name="lastName"
-    />
-    <br />
-    <input
-      ngModel
-      #password="ngModel"
-      required
-      placeholder="Password"
-      type="pasword"
-      name="password"
     />
     <br />
     <input [disabled]="!registerForm.valid" type="submit" value="Sign-up" />
