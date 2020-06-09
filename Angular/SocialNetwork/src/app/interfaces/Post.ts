@@ -6,5 +6,6 @@ export interface Post {
   link: string;
   isLiked: boolean;
   likeCount: number;
-  comments: Comment[];
+  //TODO: figure out why this doesn't want to be type Comment[]
+  comments: any[];
 }

@@ -1,5 +1,5 @@
 import { PostService } from './../services/post.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'post-container',
@@ -7,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-container.component.css'],
 })
 export class PostContainerComponent implements OnInit {
-  posts = [];
+  @Input('postFeed') posts;
 
-  constructor(private postService: PostService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    // this.posts = this.postService.getPost();
-  }
+  ngOnInit(): void {}
 }

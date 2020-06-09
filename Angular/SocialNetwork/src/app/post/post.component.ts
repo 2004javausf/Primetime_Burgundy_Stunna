@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostComponent implements OnInit {
   @Input('in') post;
   picture;
-  showPost: boolean = false;
+  showPost: boolean = true;
   showComments: boolean;
   constructor() {}
   ngOnInit(): void {

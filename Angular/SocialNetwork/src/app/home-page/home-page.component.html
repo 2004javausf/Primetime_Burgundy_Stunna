@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <div class="border">My profile toggle</div>
+      <!-- <div class="border">My profile toggle</div>
       <button (click)="toggle()" id="bt">{{buttonName}}</button>
       <div class="border">
         modify info toggle<br>
@@ -14,32 +14,91 @@
         </ul>
       </div>
       <div class="border">search the network toggle</div>
-      <button (click)="toggle3()" id="bt3">{{buttonName3}}</button>
+      <button (click)="toggle3()" id="bt3">{{buttonName3}}</button> -->
+      <!--TODO: check out my version of the buttons-->
+      <button
+        (click)="view = 'MyProfile'"
+        [class.btn-info]="view == 'MyProfile'"
+        class="form-control btn btn-secondary"
+      >
+        View My Profile
+      </button>
+      <button
+        (click)="view = 'UpdateProfile'"
+        [class.btn-info]="view == 'UpdateProfile'"
+        class="form-control btn btn-secondary"
+      >
+        Update Profile
+      </button>
+      <button
+        (click)="view = 'SearchNetwork'"
+        [class.btn-info]="view == 'SearchNetwork'"
+        class="form-control btn btn-secondary"
+      >
+        Search Network
+      </button>
+      <!--TODO: check out my version of the buttons-->
     </div>
     <div class="col-9">
-      <ng-container *ngIf="show"> 
+      <!--TODO: check out my version of the display-->
+      <div [ngSwitch]="view">
+        <ng-template [ngSwitchCase]="'MyProfile'">
+          <div class="border">
+            Display this box if "My Profile" is selected
+            <div>Profile Information Component</div>
+            <post-container [postFeed]="posts"></post-container>
+          </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="'UpdateProfile'">
+          <div class="border">
+            Display this box if "Modify Info" is selected
+            <div>Modify Info Component</div>
+          </div>
+        </ng-template>
+        <ng-template [ngSwitchCase]="'SearchNetwork'">
+          <div class="border">
+            Display this box if "Search Network" is selected
+            <div>Search Network Component</div>
+          </div>
+        </ng-template>
+      </div>
+      <!--TODO: unhide this element-->
+      <div class="border" style="display: none;">
+        Display this box if "Search Network/userId" is selected
+        <div>Users Profile Component</div>
+      </div>
+      <!--TODO: check out my version of the display-->
+      <!--TODO:Or just using ngIf-->
+      <div>
+        delete this
+        <div *ngIf="view == 'MyProfile'">display MyProfile</div>
+        <div *ngIf="view == 'UpdateProfile'">display UpdateProfile</div>
+        <div *ngIf="view == 'SearchNetwork'">display SearchNetwork</div>
+      </div>
+      <!--TODO:Or just using ngIf-->
+      <!-- <ng-container *ngIf="show">
         <div class="border">
           Display this box if "My Profile" is selected
           <div>Profile Information Component</div>
           <post-container></post-container>
         </div>
       </ng-container>
-      <ng-container *ngIf="show2"> 
-      <div class="border">
-        Display this box if "Modify Info" is selected
-        <div>Modify Info Component</div>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="show3"> 
-      <div class="border">
-        Display this box if "Search Network" is selected
-        <div>Search Network Component</div>
-      </div>
-    </ng-container>
+      <ng-container *ngIf="show2">
+        <div class="border">
+          Display this box if "Modify Info" is selected
+          <div>Modify Info Component</div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="show3">
+        <div class="border">
+          Display this box if "Search Network" is selected
+          <div>Search Network Component</div>
+        </div>
+      </ng-container>
       <div class="border">
         Display this box if "Search Network/userId" is selected
         <div>Users Profile Component</div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

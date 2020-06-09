@@ -1,3 +1,5 @@
+import { Comment } from './../interfaces/Comment';
+import { Post } from './../interfaces/Post';
 import { UserData } from './../interfaces/UserData';
 import { UserLogin } from './../interfaces/UserLogin';
 import { NewUser } from './../interfaces/NewUser';
@@ -22,17 +24,17 @@ export class PostService {
   addUser(input: NewUser): Observable<UserData> {
     return this.httpClient.post<UserData>(this.url + '/adduser', input);
   }
-  getPost() {
+  getTestPosts(): Post[] {
     return [
       {
-        id: 'post.id',
+        id: 1,
         userFullName: 'post.userFullName',
         userPicture:
           'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         text: 'post.text',
         link: 'post.link',
-        isLiked: 'post.isLiked',
-        likeCount: 'post.likeCount',
+        isLiked: true,
+        likeCount: 10,
         comments: [
           {
             commenter: 'comments.userFullname',
@@ -55,14 +57,14 @@ export class PostService {
         ],
       },
       {
-        id: 'post.id',
+        id: 2,
         userFullName: 'post.userFullName',
         userPicture:
           'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         text: 'post.text',
         link: 'post.link',
-        isLiked: 'post.isLiked',
-        likeCount: 'post.likeCount',
+        isLiked: false,
+        likeCount: 5,
         comments: [
           {
             commenter: 'comments.userFullname',
