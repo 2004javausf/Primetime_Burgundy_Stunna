@@ -19,6 +19,11 @@ import { UserContentInputFormComponent } from './user-content-input-form/user-co
 import { AccountRegisterContainerComponent } from './account-register-container/account-register-container.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { SearchNetworkComponent } from './search-network/search-network.component';
+import { ProfileInformationComponent } from './profile-information/profile-information.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { HomePageComponent } from './home-page/home-page.component';
     AccountRegisterContainerComponent,
     LoginPageComponent,
     HomePageComponent,
+    UpdateProfileComponent,
+    SearchNetworkComponent,
+    ProfileInformationComponent,
+    PasswordResetComponent,
+    AboutUsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

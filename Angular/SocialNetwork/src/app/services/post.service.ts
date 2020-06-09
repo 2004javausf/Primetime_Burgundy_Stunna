@@ -6,6 +6,7 @@ import { NewUser } from './../interfaces/NewUser';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +18,17 @@ export class PostService {
     return ['post.id'];
   }
 
-  validateUserLogin(input: UserLogin): Observable<UserData> {
+  //user/login
+  validateUserLogin(input: User): Observable<User> {
     //TODO: match to actual URI extension
-    return this.httpClient.post<UserData>(this.url + '/userlogin', input);
+    return this.httpClient.post<User>(this.url + '/userlogin', input);
   }
   addUser(input: NewUser): Observable<UserData> {
     return this.httpClient.post<UserData>(this.url + '/adduser', input);
+  }
+
+  getUsers() {
+    return this.httpClient.get(this.url + '/all');
   }
   getTestPosts(): Post[] {
     return [

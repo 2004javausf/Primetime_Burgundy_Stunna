@@ -1,3 +1,5 @@
+import { UserService } from './../services/user.service';
+import { HttpClient } from '@angular/common/http';
 import { UserLogin } from './../interfaces/UserLogin';
 import { NewUser } from './../interfaces/NewUser';
 import { PostService } from './../services/post.service';
@@ -9,13 +11,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent implements OnInit {
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {}
 
   submitLogin(input: UserLogin) {
     //Submits UserLogin
-    this.postService.validateUserLogin(input).subscribe();
+    this.userService.userLogin(input).subscribe((x) => console.log(x));
   }
   submitRegisteration(input: NewUser) {
     //submit NewUser

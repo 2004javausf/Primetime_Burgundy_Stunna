@@ -1,10 +1,17 @@
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor() {}
+  url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user';
+  constructor(private http: HttpClient) {}
+  userLogin(input): Observable<User> {
+    return this.http.post<User>(this.url + '/login', input);
+  }
 
   getTestUsers() {
     return [
