@@ -18,6 +18,7 @@ import com.sn.service.UserService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController {
     @Autowired
     UserService userService;
@@ -27,7 +28,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200",allowedHeaders = "*")
+    
     @RequestMapping(value = "/adduser", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.OK)
@@ -46,8 +47,12 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST,
     		consumes = MediaType.APPLICATION_JSON_VALUE, produces =  MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(code = HttpStatus.OK)
-    public boolean loginUser(@RequestBody User user) {
-    	return this.userService.existsByUsernameAndPassword(user.getUsername(), user.getPassword());
+    public User loginUser(@RequestBody User user) {
+    	if(this.userService.existsByUsernameAndPassword(user.getUsername(), user.getPassword()) == false) {
+    		return null;
+    	} else {
+    		return this.userService.findUserByusername(user.getUsername());
+    	}
     	
     }
     //other controllers omitted for brevity

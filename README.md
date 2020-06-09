@@ -3,7 +3,8 @@
 ## Primetime_Burgundy_Stunna
 
 [Trello board user stories](https://trello.com/b/CZP4kzxC/primetime-burgandy-stunna)  
-[Jenkins](http://ec2-user@ec2-3-133-98-43.us-east-2.compute.amazonaws.com:8080/jenkins)
+[Jenkins](http://ec2-user@ec2-3-133-98-43.us-east-2.compute.amazonaws.com:8080/jenkins)  
+[Angular](http://project-buckett.s3-website.us-east-2.amazonaws.com)  
 
 ### Project outline
 In this social network, everyone is friends with everyone. Each group gets to choose their own Social Network name (keep it professional and try to make it catchy).
