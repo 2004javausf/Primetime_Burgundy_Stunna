@@ -1,7 +1,7 @@
-import { HttpHeaders } from '@angular/common/http';
+import { UserLogin } from './../interfaces/UserLogin';
+import { NewUser } from './../interfaces/NewUser';
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'login-page',
@@ -9,21 +9,24 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private postService: PostService) {}
 
   ngOnInit(): void {}
 
-  submitLogin(formInput) {
-    console.log(formInput);
+  submitLogin(input: UserLogin) {
+    //Submits UserLogin
+    this.postService.validateUserLogin(input).subscribe();
   }
-  submitRegisteration(formInput) {
-    let header = new HttpHeaders();
-    header.set('Access-Control-Allow-Origin', '*');
-    // let url =
-    //   'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/all';
-    // this.http.get(url).subscribe((x) => console.log(x));
-    let url =
-      'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/adduser';
-    this.http.post(url, formInput).subscribe((x) => console.log(x));
+  submitRegisteration(input: NewUser) {
+    //submit NewUser
+    this.postService.addUser(input).subscribe(
+      (response) => {
+        //returns UserData
+        //navigate to HomePage, passing UserData to the HomePage
+      },
+      (error) => {
+        //alert saying error from server
+      }
+    );
   }
 }

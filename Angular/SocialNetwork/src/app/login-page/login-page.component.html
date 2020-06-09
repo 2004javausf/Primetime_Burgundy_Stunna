@@ -1,89 +1,124 @@
-<div class="jumbotron">
-  <div class="row">
-    <h1 class="h1 col-3">Welcome</h1>
+<div class="bg-secondary container">
+  <div class="row p-5">
+    <h1 class="h1 col-3">ProjectName</h1>
     <div class="col-3"></div>
     <div class="col-6">
       <form
         #loginForm="ngForm"
         (submit)="submitLogin(loginForm.value)"
-        class=""
+        class="form-inline"
       >
-        <input
-          ngModel
-          #username="ngModel"
-          required
-          placeholder="Username"
-          type="text"
-          name="username"
-        />
-
-        <input
-          ngModel
-          #password="ngModel"
-          required
-          placeholder="Password"
-          type="pasword"
-          name="password"
-        />
-
-        <input [disabled]="!loginForm.valid" type="submit" value="submit" />
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #username="ngModel"
+            required
+            placeholder="Username"
+            type="text"
+            name="username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #password="ngModel"
+            required
+            placeholder="Password"
+            type="pasword"
+            name="password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="form-control btn btn-primary"
+            [disabled]="!loginForm.valid"
+            type="submit"
+            value="submit"
+          />
+        </div>
       </form>
-      <a>Reset My Password</a>
+      <a href="#" style="color: cornflowerblue;">Reset My Password</a>
     </div>
   </div>
 </div>
 <div class="container">
-  For sign-up
-  <form
-    #registerForm="ngForm"
-    (submit)="submitRegisteration(registerForm.value)"
-    class=""
-  >
-    <input
-      ngModel
-      #username="ngModel"
-      required
-      placeholder="username"
-      type="text"
-      name="username"
-    />
-
-    <input
-      ngModel
-      #password="ngModel"
-      required
-      placeholder="Password"
-      type="pasword"
-      name="password"
-    />
-    <br />
-    <input
-      ngModel
-      #email="ngModel"
-      required
-      placeholder="email"
-      type="email"
-      name="email"
-    />
-    <br />
-    <input
-      ngModel
-      #firstName="ngModel"
-      required
-      placeholder="firstName"
-      type="text"
-      name="firstName"
-    />
-    <br />
-    <input
-      ngModel
-      #lastName="ngModel"
-      required
-      placeholder="lastName"
-      type="text"
-      name="lastName"
-    />
-    <br />
-    <input [disabled]="!registerForm.valid" type="submit" value="Sign-up" />
-  </form>
+  <div class="row">
+    <div class="col-6">
+      Something about our Project
+    </div>
+    <div class="col-6">
+      For sign-up
+      <form
+        #registerForm="ngForm"
+        (submit)="submitRegisteration(registerForm.value)"
+        class=""
+      >
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #username="ngModel"
+            required
+            placeholder="username"
+            type="text"
+            name="username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #password="ngModel"
+            required
+            placeholder="Password"
+            type="pasword"
+            name="password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #email="ngModel"
+            required
+            placeholder="email"
+            type="email"
+            name="email"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #firstName="ngModel"
+            required
+            placeholder="firstName"
+            type="text"
+            name="firstName"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            ngModel
+            class="form-control"
+            #lastName="ngModel"
+            required
+            placeholder="lastName"
+            type="text"
+            name="lastName"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            class="btn btn-primary form-control"
+            [disabled]="!registerForm.valid"
+            type="submit"
+            value="Sign-up"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

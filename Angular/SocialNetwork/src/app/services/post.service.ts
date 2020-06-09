@@ -1,3 +1,6 @@
+import { UserData } from './../interfaces/UserData';
+import { UserLogin } from './../interfaces/UserLogin';
+import { NewUser } from './../interfaces/NewUser';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -11,8 +14,13 @@ export class PostService {
   getPostIDsByUser(userID) {
     return ['post.id'];
   }
-  addUser(user) {
-    this.httpClient.post(this.url + '/adduser', user);
+
+  validateUserLogin(input: UserLogin): Observable<UserData> {
+    //TODO: match to actual URI extension
+    return this.httpClient.post<UserData>(this.url + '/userlogin', input);
+  }
+  addUser(input: NewUser): Observable<UserData> {
+    return this.httpClient.post<UserData>(this.url + '/adduser', input);
   }
   getPost() {
     return [
