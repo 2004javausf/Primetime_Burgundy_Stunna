@@ -1,1 +1,35 @@
 <p>update-profile works!</p>
+<div class="row pb-2">
+    <div class="col-3">
+      
+      
+    </div>
+  
+    <div class="col-9">
+        <div  [ngStyle]="picture" class="avatar"></div>
+      <form>
+        
+        <div class="row container">
+            
+            <input type="file" name="image" id="image" class="col-6" />
+           
+        </div>
+        <div class="row container">
+            
+            <p>Edit name</p>
+            <input type="text" class="text-center">{{ user.fullName }}
+        </div>
+        <div class="row container">
+            
+            <p>Edit email</p>
+            <input class="text">{{ user.email}}
+        </div>
+        <div class="row container">
+            
+            <p>Edit About Me</p>
+            <input class="text">{{ user.bio }}
+        </div>
+      </form>
+    </div>
+  </div>
+  
