@@ -20,6 +20,10 @@
   height: 30px;
   border-radius: 5px;
 }
+.ht3 {
+  height: 10px;
+  border-radius: 5px;
+}
 .col-3 {
   min-width: 100px;
 }
@@ -28,7 +32,6 @@
 }
 
 #postContainer {
-  max-width: 600px;
   min-width: 500px;
 }
 textarea {

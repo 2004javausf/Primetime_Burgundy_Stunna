@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'post-form',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-form.component.css'],
 })
 export class PostFormComponent implements OnInit {
+  @Input('user') user;
   constructor() {}
 
   ngOnInit(): void {}

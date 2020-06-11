@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'search-network',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-network.component.css'],
 })
 export class SearchNetworkComponent implements OnInit {
+  @Input('users') users;
+
   constructor() {}
 
   ngOnInit(): void {}

@@ -1,4 +1,4 @@
-<p>update-profile works!</p>
+<!-- <p>update-profile works!</p>
 <div class="row pb-2">
     <div class="col-3">
       
@@ -31,5 +31,57 @@
         </div>
       </form>
     </div>
+  </div> -->
+
+<div class="row">
+  <div class="col-4 text-center m-a">
+    <div class="row container">
+      <div [ngStyle]="picture" class="avatar"></div>
+    </div>
+    <div>
+      <button>upload piture</button>
+    </div>
   </div>
-  
+  <div class="col-8">
+    <div class="row">
+      <div class="">
+        <a href="#">#</a>
+      </div>
+      <div class="col-10 border">First Name: {{ user.firstName }}</div>
+    </div>
+    <div class="row">
+      <div class="">
+        <a href="#">#</a>
+      </div>
+      <div class="col-10 border">Last Name: {{ user.lastName }}</div>
+    </div>
+    <div class="row">
+      <div class="">
+        <a href="#">#</a>
+      </div>
+      <div class="col-10 border">Email: {{ user.email }}</div>
+    </div>
+    <div class="row">
+      <div class="">
+        <a href="#">#</a>
+      </div>
+      <div class="col-10 border">username: {{ user.username }}</div>
+    </div>
+    <div class="row">
+      <div class="">
+        <a href="#">#</a>
+      </div>
+      <div class="col-10 border">password: {{ user.password }}</div>
+    </div>
+    <div class="row">
+      <div class="">
+        <a href="#">#</a>
+      </div>
+      <div class="col-10 border">About me: {{ user.aboutMe }}</div>
+    </div>
+  </div>
+</div>
+<div>
+  Click on the # to change the value to an input field and display submit button
+</div>
+<div>create functions to send HTTP post requests to update</div>

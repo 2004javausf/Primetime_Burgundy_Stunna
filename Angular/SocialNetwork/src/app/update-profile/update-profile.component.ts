@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'update-profile',
@@ -6,23 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-profile.component.css'],
 })
 export class UpdateProfileComponent implements OnInit {
- // @Input('type') type;
-  placeholderText;
+  @Input('user') user;
 
-  user = {
-    fullName: '',
-    picture:
-      'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    email:'',
-    bio:'',
-  };
+  //use *ngIf to display input elements and submit buttons when clicking on the ! symbol
+  //make (submit) events and bind them to functions in .ts
+  //
   picture;
   constructor() {}
 
   ngOnInit(): void {
-   // this.placeholderText = `Please enter your ${this.type}`;
     this.picture = {
-      'background-image': 'url(' + this.user.picture + ')',
+      'background-image': 'url(' + this.user.picLink + ')',
     };
   }
 }

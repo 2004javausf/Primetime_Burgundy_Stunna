@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./post-container.component.css'],
 })
 export class PostContainerComponent implements OnInit {
+  @Input('user') user;
   @Input('postFeed') posts;
 
   constructor() {}

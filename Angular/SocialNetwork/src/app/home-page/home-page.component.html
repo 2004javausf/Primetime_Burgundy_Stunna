@@ -1,16 +1,24 @@
-<div class="ht1 color1 text-right">
-  <a>logout</a>
+<div class="ht1 color1">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <img src="RevatureSquawk.jpg" alt="Squaker" />
+      </div>
+      <div class="col-6 text-right">
+        <a class="text-info" href="#">logout</a>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <!--TODO: check out my version of the buttons-->
       <button
-        (click)="view = 'MyProfile'"
-        [class.btn-info]="view == 'MyProfile'"
+        (click)="view = 'Feed'"
+        [class.btn-info]="view == 'Feed'"
         class="form-control btn btn-secondary"
       >
-        View My Profile
+        View My Feed
       </button>
       <button
         (click)="view = 'UpdateProfile'"
@@ -26,34 +34,26 @@
       >
         Search Network
       </button>
-      <!--TODO: check out my version of the buttons-->
     </div>
     <div class="col-9">
-      <!--TODO: check out my version of the display-->
       <div [ngSwitch]="view">
-        <ng-template [ngSwitchCase]="'MyProfile'">
-          <div class="border">
-            <profile-information></profile-information>
-            <!--post-container [postFeed]="posts"></post-container-->
+        <ng-template [ngSwitchCase]="'Feed'">
+          <div class="">
+            <post-container [user]="user" [postFeed]="posts"></post-container>
           </div>
         </ng-template>
         <ng-template [ngSwitchCase]="'UpdateProfile'">
-          <div class="border">
-            <update-profile></update-profile>
+          <div class="">
+            <update-profile [user]="user"></update-profile>
           </div>
         </ng-template>
         <ng-template [ngSwitchCase]="'SearchNetwork'">
-          <div class="border">
-            <search-network></search-network>
+          <div class="">
+            <profile-information [focus]="focus"></profile-information>
+            <search-network [users]="users"></search-network>
           </div>
         </ng-template>
       </div>
-      <!--TODO: unhide this element-->
-      <div class="border" style="display: none;">
-        Display this box if "Search Network/userId" is selected
-        <div>Users Profile Component</div>
-      </div>
-      <!--TODO: check out my version of the display-->
     </div>
   </div>
 </div>

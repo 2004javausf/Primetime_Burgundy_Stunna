@@ -20,11 +20,11 @@ export class LoginPageComponent implements OnInit {
 
   submitLogin(input: UserLogin) {
     //Submits UserLogin
-    this.userService.userLogin(input).subscribe((x) => console.log(x));
+    this.userService.validateUserLogin(input).subscribe((x) => console.log(x));
   }
   submitRegisteration(input: NewUser) {
     //submit NewUser
-    this.postService.addUser(input).subscribe(
+    this.userService.addUser(input).subscribe(
       (response) => {
         //returns UserData
         //navigate to HomePage, passing UserData to the HomePage

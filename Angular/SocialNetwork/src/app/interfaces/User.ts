@@ -6,4 +6,5 @@ export interface User {
   firstName: string;
   lastName: string;
   picLink: string;
+  aboutMe: string;
 }

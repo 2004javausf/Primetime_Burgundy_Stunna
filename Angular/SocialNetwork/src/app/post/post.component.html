@@ -1,26 +1,28 @@
 <div class="container border">
   <div class="row color2 ht2">
-    <a class="col-3 close text-left pl-3" (click)="postToggled()">
+    <!-- <a class="col-3 close text-left pl-3" (click)="postToggled()">
       <span *ngIf="!showPost">^</span>
       <span *ngIf="showPost">v</span>
-    </a>
-    <div class="col-9">{{ post.id }}</div>
+    </a> -->
+    <div class="col-9">{{ post.date }}</div>
   </div>
   <div *ngIf="showPost">
     <div class="row">
       <div class="col-3">
-        <div class="text-center">{{ post.userFullName }}</div>
+        <div class="text-center">
+          {{ post.firstName + " " + post.lastName }}
+        </div>
         <div [ngStyle]="picture" class="avatar"></div>
       </div>
 
       <div class="col-9">
         <hr />
-        <link-container [link]="post.link"></link-container>
-        <div class="border">{{ post.text }}</div>
+        <div class="border" *ngIf="post.image">{{ post.image }}</div>
+        <div class="border">{{ post.post }}</div>
       </div>
     </div>
 
-    <div class="border row pb-2">
+    <div class="row">
       <like-container
         class="col-6"
         [isLiked]="post.isLiked"
@@ -35,7 +37,9 @@
   </div>
 
   <comment-container
+    [user]="user"
     [comments]="post.comments"
     *ngIf="showComments"
   ></comment-container>
 </div>
+<div class="ht3 color2"></div>

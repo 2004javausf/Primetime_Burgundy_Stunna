@@ -1,6 +1,8 @@
 <div class="row pb-2">
   <div class="col-3">
-    <div class="text-center">{{ user.fullName }}</div>
+    <div class="text-center p-0 m-0 text-nowrap">
+      {{ user.firstName + " " + user.lastName }}
+    </div>
     <div [ngStyle]="picture" class="avatar"></div>
   </div>
 
@@ -14,13 +16,14 @@
         cols="30"
         rows="4"
       ></textarea>
-      <div class="row container">
-        <input type="file" name="image" id="image" class="col-6" />
-        <input
-          type="submit"
-          class="col-6 btn btn-primary ht2 p-0 btn-block"
-          value="submit"
-        />
+      <div class="container row">
+        <div class="form-control col-6">
+          <label for="image" class="text-center"
+            >add image
+            <input style="display: none;" type="file" name="image" id="image" />
+          </label>
+        </div>
+        <input type="submit" class="form-control col-6" value="submit" />
       </div>
     </form>
   </div>
