@@ -1,87 +1,64 @@
-<!-- <p>update-profile works!</p>
-<div class="row pb-2">
-    <div class="col-3">
-      
-      
-    </div>
-  
-    <div class="col-9">
-        <div  [ngStyle]="picture" class="avatar"></div>
-      <form>
-        
-        <div class="row container">
-            
-            <input type="file" name="image" id="image" class="col-6" />
-           
+<!DOCTYPE html>
+<html>
+    <head> </head>
+    <body>
+        <h1>Update Profile</h1>
+    </br>
+    </br>
+        <div>
+            <h2 style="font-size:large">Update Profile Picture</h2>
+        </br>
+            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Profile Picture" height="350" width="250"/>
+        </br>
+            <input type="file" id="imgUpdate" value="Browse" accept="image/*">
         </div>
-        <div class="row container">
-            
-            <p>Edit name</p>
-            <input type="text" class="text-center">{{ user.fullName }}
+    </br>
+    </br>
+        <div>
+            <h2 style="font-size:large">Update Profile Information</h2>
+        </br>
+        </br>
+            <label>Update Username</label>
+        </br>
+            <input type="text" id="unUpdate">
+        </br>
+        </br>
+            <label>Update First Name</label>
+        </br>
+            <input type="text" id="fNameUpdate">
+        </br>
+        </br>
+            <label>Update Last Name</label>
+        </br>
+            <input type="text" id="lNameUpdate">
+        </br>
+        </br>
+            <!--change this to whatever we call the password reset-->
+            <label>Change Password</label>
+        </br>
+            <input type="text" id="passChange">
+        </br>
+        </br>
+            <label for="bioUpdate">Update About Me</label>
+        </br>
+            <textarea id="bioUpdate" name="bioUpdate" rows="4" cols="50"></textarea>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+            <input type="button" id="submitUpdate" value="Submit Changes">
+            <input type="button" id="cancelUpdate" value="Cancel">
         </div>
-        <div class="row container">
-            
-            <p>Edit email</p>
-            <input class="text">{{ user.email}}
-        </div>
-        <div class="row container">
-            
-            <p>Edit About Me</p>
-            <input class="text">{{ user.bio }}
-        </div>
-      </form>
-    </div>
-  </div> -->
-
-<div class="row">
-  <div class="col-4 text-center m-a">
-    <div class="row container">
-      <div [ngStyle]="picture" class="avatar"></div>
-    </div>
-    <div>
-      <button>upload piture</button>
-    </div>
-  </div>
-  <div class="col-8">
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">First Name: {{ user.firstName }}</div>
-    </div>
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">Last Name: {{ user.lastName }}</div>
-    </div>
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">Email: {{ user.email }}</div>
-    </div>
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">username: {{ user.username }}</div>
-    </div>
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">password: {{ user.password }}</div>
-    </div>
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">About me: {{ user.aboutMe }}</div>
-    </div>
-  </div>
-</div>
-<div>
-  Click on the # to change the value to an input field and display submit button
-</div>
-<div>create functions to send HTTP post requests to update</div>
+        <!--is it easier to have the submit changes at the bottom of the page
+            or a separate one for each field? will the submit at the bottom 
+            allow for only changing certain fields? or would it be better to
+            just do it separately for each field (like individual SQL
+            statements?-->
+        <!--my thought is to not include the nav-bar menu on the left here, 
+            that when they click "update profile" it brings them to this 
+            page and they either change info or click cancel. choosing 
+            either submit or cancel will then take them back to their 
+            profile page-->
+    </body>
+</html>
