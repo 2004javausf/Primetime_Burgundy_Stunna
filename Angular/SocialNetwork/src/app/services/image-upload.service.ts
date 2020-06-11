@@ -5,10 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ImageUploadService {
-  url = 'https://www.googleapis.com/upload/drive/v3/files?uploadType=media';
+  url = 'http://localhost:9000/user';
+
   constructor(private http: HttpClient) {}
+
   imageUpload(imageForm: FormData) {
     console.log('image uploading');
-    return this.http.post(this.url, imageForm);
+    return this.http.post(this.url + '/updateprofilepic', imageForm);
+  }
+  getProfilePic(username) {
+    return this.http.post(this.url + '/getprofilepic', username);
   }
 }

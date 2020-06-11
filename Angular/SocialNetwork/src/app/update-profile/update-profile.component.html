@@ -1,38 +1,3 @@
-<!-- <p>update-profile works!</p>
-<div class="row pb-2">
-    <div class="col-3">
-      
-      
-    </div>
-  
-    <div class="col-9">
-        <div  [ngStyle]="picture" class="avatar"></div>
-      <form>
-        
-        <div class="row container">
-            
-            <input type="file" name="image" id="image" class="col-6" />
-           
-        </div>
-        <div class="row container">
-            
-            <p>Edit name</p>
-            <input type="text" class="text-center">{{ user.fullName }}
-        </div>
-        <div class="row container">
-            
-            <p>Edit email</p>
-            <input class="text">{{ user.email}}
-        </div>
-        <div class="row container">
-            
-            <p>Edit About Me</p>
-            <input class="text">{{ user.bio }}
-        </div>
-      </form>
-    </div>
-  </div> -->
-
 <div class="row">
   <div class="col-4 text-center m-a">
     <div class="row container">
@@ -45,9 +10,9 @@
   <div class="col-8">
     <div class="row">
       <div class="">
-        <a href="#">#</a>
+        <a href="clickMe" (click)="edit = 'firstName'">#</a>
       </div>
-      <div class="col-10 border">First Name: {{ user.firstName }}</div>
+      <div class="col-10 border">First Name:{{ user.firstName }}</div>
     </div>
     <div class="row">
       <div class="">
@@ -56,23 +21,14 @@
       <div class="col-10 border">Last Name: {{ user.lastName }}</div>
     </div>
     <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
+      <div class=""></div>
       <div class="col-10 border">Email: {{ user.email }}</div>
     </div>
     <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
+      <div class=""></div>
       <div class="col-10 border">username: {{ user.username }}</div>
     </div>
-    <div class="row">
-      <div class="">
-        <a href="#">#</a>
-      </div>
-      <div class="col-10 border">password: {{ user.password }}</div>
-    </div>
+
     <div class="row">
       <div class="">
         <a href="#">#</a>
@@ -85,3 +41,8 @@
   Click on the # to change the value to an input field and display submit button
 </div>
 <div>create functions to send HTTP post requests to update</div>
+<input type="file" ngModel #file="ngModel" (change)="onImagePicked($event)" />
+
+<input type="submit" value="submit" (click)="onImageUpload()" />
+<button (click)="getImage()">test</button>
+<img [src]="imageUrl" alt="picture" />

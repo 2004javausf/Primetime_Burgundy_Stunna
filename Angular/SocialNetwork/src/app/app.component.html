@@ -1,18 +1,17 @@
-<!-- <post-container></post-container> -->
 <!-- <login-page></login-page> -->
-<home-page></home-page>
-<!-- <input
-  (change)="onImagePicked($event)"
-  placeholder="Upload Image"
-  type="file"
-/>
-<button (click)="onImageUpload()">Upload Image</button>
-
-<div *ngIf="imageUrl">
-  Preview Image from AWS
-  <br />
-  <img
-    width="200px"
-    src="https://project-imagess.s3.amazonaws.com/{{ imageUrl }}"
+<!-- <home-page></home-page> -->
+<form>
+  <input
+    type="file"
+    id="fileInput"
+    name="profilePic"
+    accept="image/*"
+    (change)="onFileChanged($event)"
   />
-</div> -->
+  <input type="submit" id="btn1" (click)="onUpload()" />
+</form>
+<form>
+  <input type="text" id="usr" name="username" />
+  <input type="submit" id="btn2" (click)="getImage()" />
+</form>
+<img [src]="image" alt="" />
