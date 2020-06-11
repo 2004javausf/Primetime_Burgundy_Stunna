@@ -27,7 +27,7 @@ export class AppComponent {
     let imageData = new FormData();
     imageData.append('imageFile', this.selectedFile, name);
     this.httpClient
-      .post('http://localhost:9000/user/updateprofilepic', imageData)
+      .post('http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/updateprofilepic', imageData)
       .subscribe((x) => {
         console.log(x);
       });
@@ -37,7 +37,7 @@ export class AppComponent {
       username: (document.getElementById('usr') as HTMLInputElement).value,
     };
     this.httpClient
-      .post('http://localhost:9000/user/getprofilepic', input)
+      .post('http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/getprofilepic', input)
       .subscribe((x) => {
         let data = x[0];
         this.image = this.sanitizer.bypassSecurityTrustResourceUrl(
