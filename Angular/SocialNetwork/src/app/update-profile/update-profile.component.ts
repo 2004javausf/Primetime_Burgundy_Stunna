@@ -11,6 +11,10 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 })
 export class UpdateProfileComponent implements OnInit {
   @Input('user') user;
+  edit = false;
+  toggleEdit() {
+    this.edit = !this.edit;
+  }
   imageObj: File;
   imageUrl: SafeUrl;
 
