@@ -2,10 +2,20 @@
 <div class="row">
   <div class="col-4 text-center m-a">
     <div class="row container">
-      <div [ngStyle]="picture" class="avatar"></div>
+      <!-- <div [ngStyle]="picture" class="avatar"></div> -->
+      <img [src]="image" height="100px" width="100px" alt="" />
     </div>
     <div>
-      <input type="file" id="imgUpdate" value="Browse" accept="image/*" />
+      <form>
+        <input
+          type="file"
+          id="fileInput"
+          name="profilePic"
+          accept="image/*"
+          (change)="onFileChanged($event)"
+        />
+        <input type="submit" id="btn1" (click)="onUpload()" />
+      </form>
     </div>
   </div>
   <div class="col-8">

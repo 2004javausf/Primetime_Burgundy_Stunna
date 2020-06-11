@@ -1,17 +1,2 @@
 <!-- <login-page></login-page> -->
 <home-page></home-page>
-<form>
-  <input
-    type="file"
-    id="fileInput"
-    name="profilePic"
-    accept="image/*"
-    (change)="onFileChanged($event)"
-  />
-  <input type="submit" id="btn1" (click)="onUpload()" />
-</form>
-<form>
-  <input type="text" id="usr" name="username" />
-  <input type="submit" id="btn2" (click)="getImage()" />
-</form>
-<img [src]="image" alt="" />

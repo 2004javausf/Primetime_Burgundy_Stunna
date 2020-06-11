@@ -3,7 +3,8 @@
     <div class="text-center p-0 m-0 text-nowrap">
       {{ user.firstName + " " + user.lastName }}
     </div>
-    <div [ngStyle]="picture" class="avatar"></div>
+    <!-- <div [ngStyle]="picture" class="avatar"></div> -->
+    <img [src]="image" height="100px" width="100px" alt="" />
   </div>
 
   <div class="col-9">

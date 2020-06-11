@@ -12,52 +12,73 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 export class UpdateProfileComponent implements OnInit {
   @Input('user') user;
   edit = false;
+
+  ngOnInit() {
+    this.getImage();
+  }
+  constructor(
+    private httpClient: HttpClient,
+    private sanitizer: DomSanitizer
+  ) {}
+
+  selectedFile: File;
+  image: SafeUrl;
+
   toggleEdit() {
     this.edit = !this.edit;
   }
-  imageObj: File;
-  imageUrl: SafeUrl;
-
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile.name);
+  }
+  onUpload() {
+    let username = this.user.username;
+    let s = this.selectedFile.name;
+    let j = s.split('.');
+    let name = username + '.png';
+    //let newFile : File = new File(, name , {type : this.selectedFile.type});
+    let imageData = new FormData();
+    imageData.append('imageFile', this.selectedFile, name);
+    this.httpClient
+      .post(
+        'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/updateprofilepic',
+        imageData
+      )
+      .subscribe(
+        (x) => {
+          let data = x[0];
+          this.image = this.sanitizer.bypassSecurityTrustResourceUrl(
+            'data:image/jpg;base64,' + data
+          );
+        },
+        (error) => {
+          console.log('no such user');
+          this.image =
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png';
+        }
+      );
+  }
   getImage() {
     let input = {
-      username: 'kidx',
+      username: this.user.username,
     };
-    this.imageUploadService.getProfilePic(input).subscribe((x) => {
-      console.log(x);
-      let data = x[0];
-      this.imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        'data:image/jpg;base64,' + data
+    this.httpClient
+      .post(
+        'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/getprofilepic',
+        input
+      )
+      .subscribe(
+        (x) => {
+          let data = x[0];
+          this.image = this.sanitizer.bypassSecurityTrustResourceUrl(
+            'data:image/jpg;base64,' + data
+          );
+        },
+        (error) => {
+          console.log('no such user');
+          this.image =
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png';
+        }
       );
-    });
-  }
-
-  //edit needs to have id and username, add the property to change
-
-  picture;
-  constructor(
-    private sanitizer: DomSanitizer,
-    private imageUploadService: ImageUploadService
-  ) {}
-
-  onImagePicked(event: Event): void {
-    const FILE = (event.target as HTMLInputElement).files[0];
-    this.imageObj = FILE;
-  }
-  onImageUpload() {
-    const imageForm = new FormData();
-    let username = 'kidx';
-    imageForm.append('imageFile', this.imageObj, username + '.png');
-    console.log(imageForm);
-    this.imageUploadService.imageUpload(imageForm).subscribe((res) => {
-      this.imageUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        'data:image/jpg;base64,' + res[0]
-      );
-    });
-  }
-
-  ngOnInit(): void {
-    this.picture = {
-      'background-image': 'url(' + this.user.picLink + ')',
-    };
   }
 }
