@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CommentContainerComponent implements OnInit {
   @Input('user') user;
   @Input('comments') comments;
+  @Input('post') post;
   // @Output() toggled = new EventEmitter();
   constructor() {}
 

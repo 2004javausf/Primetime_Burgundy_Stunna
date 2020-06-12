@@ -11,7 +11,9 @@ import { HttpClient } from '@angular/common/http';
 export class CommentFormComponent implements OnInit {
   @Input('user') user;
   @Input('type') type;
+  @Input('post') post;
 
+  image;
   placeholderText;
   constructor(
     private httpClient: HttpClient,
@@ -22,7 +24,7 @@ export class CommentFormComponent implements OnInit {
   submitCommentForm(input) {
     let comment = {
       username: this.user.username,
-      pId: 1,
+      pId: this.post.id,
       body: input.body,
     };
     this.commentService.addComment(comment).subscribe((x) => console.log(x));
@@ -30,6 +32,8 @@ export class CommentFormComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getImage();
+    console.log('in comment form');
+    console.log(this.post);
   }
 
   getImage() {

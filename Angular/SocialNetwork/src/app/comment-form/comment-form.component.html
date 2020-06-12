@@ -8,7 +8,6 @@
       <img [src]="image" height="100px" width="100px" alt="" />
     </div>
 
-    <img [src]="imagePreview2" height="100px" width="100px" alt="" />
     <div class="col-9">
       <form #f2="ngForm" (ngSubmit)="submitCommentForm(f2.value)">
         <textarea
@@ -20,19 +19,6 @@
           cols="30"
           rows="4"
         ></textarea>
-
-        <!-- <div class="form-control col-6">
-            <label for="image2" class="text-center"
-              >add images
-              <input
-                (change)="onFileChanged($event)"
-                style="display: none;"
-                type="file"
-                name="image2"
-                id="image2"
-              />
-            </label>
-          </div> -->
         <div class="ht2">
           <input
             type="submit"

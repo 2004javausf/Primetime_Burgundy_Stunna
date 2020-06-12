@@ -11,7 +11,6 @@ import { SafeUrl } from '@angular/platform-browser';
   selector: 'home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
-  
 })
 export class HomePageComponent implements OnInit {
   @Output() logout = new EventEmitter();
@@ -46,8 +45,9 @@ export class HomePageComponent implements OnInit {
         let tmp = comments;
         posts.forEach((post) => {
           post.comments = [];
-          tmp.forEach((comment) => {
-            if (post.username == comment.username) {
+          tmp.forEach((comment: any) => {
+            console.log(post.id);
+            if (post.id == comment.pId) {
               post.comments.push(comment);
             }
           });

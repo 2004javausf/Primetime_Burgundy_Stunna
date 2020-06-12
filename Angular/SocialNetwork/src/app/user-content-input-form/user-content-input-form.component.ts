@@ -13,7 +13,7 @@ export class UserContentInputFormComponent implements OnInit {
   @Input('user') user;
 
   imagePreview: Array<any>;
-  selectedFile: string;
+  selectedFile;
   placeholderText;
   image: SafeUrl;
   constructor(
