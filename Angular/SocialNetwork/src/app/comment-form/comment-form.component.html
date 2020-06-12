@@ -1,6 +1,46 @@
 <div>
-  <user-content-input-form
-    [user]="user"
-    type="comment"
-  ></user-content-input-form>
+  <div class="row pb-2">
+    <div class="col-3">
+      <div class="text-center p-0 m-0 text-nowrap">
+        {{ user.username }}
+      </div>
+      <!-- <div [ngStyle]="picture" class="avatar"></div> -->
+      <img [src]="image" height="100px" width="100px" alt="" />
+    </div>
+
+    <img [src]="imagePreview2" height="100px" width="100px" alt="" />
+    <div class="col-9">
+      <form #f2="ngForm" (ngSubmit)="submitCommentForm(f2.value)">
+        <textarea
+          ngModel
+          #body="ngModel"
+          class="form-control"
+          placeholder="Please enter your comment"
+          name="body"
+          cols="30"
+          rows="4"
+        ></textarea>
+
+        <!-- <div class="form-control col-6">
+            <label for="image2" class="text-center"
+              >add images
+              <input
+                (change)="onFileChanged($event)"
+                style="display: none;"
+                type="file"
+                name="image2"
+                id="image2"
+              />
+            </label>
+          </div> -->
+        <div class="ht2">
+          <input
+            type="submit"
+            class="btn btn-info form-control"
+            value="submit"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

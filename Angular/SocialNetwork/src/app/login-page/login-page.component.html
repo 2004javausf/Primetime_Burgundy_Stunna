@@ -4,6 +4,7 @@
     <div class="col-3"></div>
     <div class="col-6">
       <form
+        *ngIf="!passwordReset"
         #loginForm="ngForm"
         (submit)="submitLogin(loginForm.value)"
         class="form-inline"
@@ -39,7 +40,16 @@
           />
         </div>
       </form>
-      <password-reset></password-reset>
+      <password-reset
+        (onReset)="onReset($event)"
+        *ngIf="passwordReset"
+      ></password-reset>
+      <a *ngIf="!passwordReset" (click)="togglePasswordReset()" href="#"
+        >Reset Password</a
+      >
+      <a *ngIf="passwordReset" (click)="togglePasswordReset()" href="#"
+        >Back to login</a
+      >
     </div>
   </div>
 </div>

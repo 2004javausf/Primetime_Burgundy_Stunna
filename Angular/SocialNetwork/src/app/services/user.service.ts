@@ -1,3 +1,4 @@
+import { ResetPassword } from './../interfaces/ResetPassword';
 import { UserLogin } from './../interfaces/UserLogin';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +15,9 @@ export class UserService {
   getPostIDsByUser(userID) {
     return ['post.id'];
   }
-
+  ResetPassword(input): Observable<User> {
+    return this.httpClient.post<User>(this.url + '/changepass', input);
+  }
   validateUserLogin(input: UserLogin): Observable<User> {
     return this.httpClient.post<User>(this.url + '/login', input);
   }

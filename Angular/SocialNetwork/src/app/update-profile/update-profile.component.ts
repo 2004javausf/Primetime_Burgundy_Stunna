@@ -12,7 +12,7 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 export class UpdateProfileComponent implements OnInit {
   @Input('user') user;
   edit = false;
-
+  imagePreview;
   ngOnInit() {
     this.getImage();
   }
@@ -27,9 +27,23 @@ export class UpdateProfileComponent implements OnInit {
   toggleEdit() {
     this.edit = !this.edit;
   }
+  changeFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  }
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile.name);
+    if (event.target.value) {
+      const file = event.target.files[0];
+      this.changeFile(file).then((base64: string): any => {
+        this.imagePreview = [base64];
+      });
+    } else alert('Nothing');
   }
   onUpload() {
     let username = this.user.username;

@@ -7,13 +7,15 @@
     <img [src]="image" height="100px" width="100px" alt="" />
   </div>
 
+  <img [src]="imagePreview" height="100px" width="100px" alt="" />
   <div class="col-9">
-    <form>
+    <form #f="ngForm" (ngSubmit)="submitForm(f.value)">
       <textarea
+        ngModel
+        #body="ngModel"
         class="form-control"
         [placeholder]="placeholderText"
-        name="input"
-        id=""
+        name="body"
         cols="30"
         rows="4"
       ></textarea>
@@ -21,7 +23,13 @@
         <div class="form-control col-6">
           <label for="image" class="text-center"
             >add image
-            <input style="display: none;" type="file" name="image" id="image" />
+            <input
+              (change)="onFileChanged($event)"
+              style="display: none;"
+              type="file"
+              name="image"
+              id="image"
+            />
           </label>
         </div>
         <input type="submit" class="form-control col-6" value="submit" />

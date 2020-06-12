@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-3">
         <div class="text-center">
-          {{ post.firstName + " " + post.lastName }}
+          {{ post.username }}
         </div>
         <!-- <div [ngStyle]="picture" class="avatar"></div> -->
         <img [src]="image" height="100px" width="100px" alt="" />
@@ -18,21 +18,23 @@
 
       <div class="col-9">
         <hr />
-        <div class="border" *ngIf="post.image">{{ post.image }}</div>
+        <img [src]="image2" height="100px" width="100px" alt="" />
         <div class="border">{{ post.post }}</div>
       </div>
     </div>
 
     <div class="row">
       <like-container
+        [user]="user"
+        [post]="post"
         class="col-6"
-        [isLiked]="post.isLiked"
-        [likeCount]="post.likeCount"
+        [isLiked]="isLiked"
+        [likeCount]="likeCount"
       ></like-container>
       <comments-toggle
         (toggled)="commentsToggled()"
         class="col-6"
-        [comments]="post.comments"
+        [post]="post"
       ></comments-toggle>
     </div>
   </div>

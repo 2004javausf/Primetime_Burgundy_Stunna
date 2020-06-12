@@ -13,11 +13,17 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class LoginPageComponent implements OnInit {
   @Output() userChange = new EventEmitter();
 
+  passwordReset = false;
+  togglePasswordReset() {
+    this.passwordReset = !this.passwordReset;
+  }
   constructor(
     private postService: PostService,
     private userService: UserService
   ) {}
-
+  onReset(event) {
+    this.userChange.emit(event);
+  }
   ngOnInit(): void {}
 
   submitLogin(input: UserLogin) {

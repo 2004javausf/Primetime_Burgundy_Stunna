@@ -5,6 +5,7 @@
     [class.btn-info]="isSelected"
     (click)="onClick()"
   >
-    {{ comments.length }} Comments
+    <span *ngIf="length == 0">Comment</span>
+    <span *ngIf="length > 0">{{ "Fix this" }}Comment</span>
   </button>
 </div>

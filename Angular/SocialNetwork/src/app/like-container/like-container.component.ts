@@ -1,4 +1,5 @@
-import { Input } from '@angular/core';
+import { UserLikesService } from './../services/user-likes.service';
+import { Input, Output, EventEmitter } from '@angular/core';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
@@ -9,24 +10,29 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class LikeContainerComponent implements OnInit {
   @Input('isLiked') isSelected: boolean;
   @Input('likeCount') likeCount: number;
+  @Input('user') user;
+  @Input('post') post;
 
   initIsSelected;
-  constructor() {}
+  constructor(private uselikesService: UserLikesService) {}
 
   ngOnInit(): void {
     this.initIsSelected = this.isSelected;
   }
-  ngOnDestroy() {
-    if (this.initIsSelected == false) {
-      if (this.isSelected == true) {
-        //send new like to database
-      }
-    } else if (this.isSelected == false) {
-      //delete like from database
-    }
-  }
+
   onClick() {
+    console.log(this.user.username);
     this.isSelected = !this.isSelected;
-    this.isSelected == true ? (this.likeCount -= 1) : (this.likeCount += 1);
+    if (this.isSelected == true) {
+      this.likeCount += 1;
+      this.uselikesService
+        .addLike(this.user.username, this.post.id)
+        .subscribe((res) => console.log(res));
+    } else {
+      this.likeCount -= 1;
+      this.uselikesService
+        .deletePostLike(this.user.username, this.post.id)
+        .subscribe((res) => console.log(res));
+    }
   }
 }

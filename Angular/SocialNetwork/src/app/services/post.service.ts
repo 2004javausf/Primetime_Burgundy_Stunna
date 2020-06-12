@@ -12,15 +12,15 @@ import { User } from '../interfaces/User';
   providedIn: 'root',
 })
 export class PostService {
-  url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user';
+  url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/post';
   constructor(private httpClient: HttpClient) {}
 
-  getPostIDsByUser(userID) {
-    return ['post.id'];
+  addPost(input): Observable<Post> {
+    return this.httpClient.post<Post>(this.url + '/addpost', input);
   }
 
-  getPosts() {
-    return this.httpClient.get(this.url + '/all');
+  getPosts(): Observable<Post[]> {
+    return this.httpClient.get<Post[]>(this.url + '/all');
   }
 
   getTestPosts() {

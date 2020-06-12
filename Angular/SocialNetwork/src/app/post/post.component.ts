@@ -1,3 +1,4 @@
+import { UserLikesService } from './../services/user-likes.service';
 import { PostService } from './../services/post.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
@@ -13,14 +14,27 @@ export class PostComponent implements OnInit {
   @Input('in') post;
 
   image: SafeUrl;
+  image2;
+  isLiked;
+  likeCount;
   showPost: boolean = true;
   showComments: boolean;
   constructor(
     private httpClient: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private userLikesService: UserLikesService
   ) {}
   ngOnInit(): void {
     this.getImage();
+    this.image2 = 'data:image/jpg;base64,' + this.post.image;
+    this.userLikesService
+      .getIsLiked(this.post.id, this.user.username)
+      .subscribe((x) =>
+        x == 0 ? (this.isLiked = false) : (this.isLiked = true)
+      );
+    this.userLikesService.getLikeCount(this.post.id).subscribe((x) => {
+      this.likeCount = x[0];
+    });
   }
   postToggled() {
     this.showPost = !this.showPost;
@@ -47,7 +61,6 @@ export class PostComponent implements OnInit {
           );
         },
         (error) => {
-          console.log('no such user');
           this.image =
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png';
         }

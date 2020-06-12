@@ -1,8 +1,8 @@
 <div class=" ">
   <button
     class="btn ht2 p-0 btn-block"
-    [class.btn-secondary]="isSelected"
-    [class.btn-info]="!isSelected"
+    [class.btn-secondary]="!isSelected"
+    [class.btn-success]="isSelected"
     (click)="onClick()"
   >
     {{ likeCount }} Likes

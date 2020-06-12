@@ -39,7 +39,6 @@ export class ProfileInformationComponent implements OnInit {
           );
         },
         (error) => {
-          console.log('no such user');
           this.image =
             'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1200px-No_image_available.svg.png';
         }

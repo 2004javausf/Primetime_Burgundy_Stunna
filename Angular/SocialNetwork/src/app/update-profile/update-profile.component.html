@@ -3,7 +3,20 @@
   <div class="col-4 text-center m-a">
     <div class="row container">
       <!-- <div [ngStyle]="picture" class="avatar"></div> -->
-      <img [src]="image" height="100px" width="100px" alt="" />
+      <img
+        *ngIf="!imagePreview"
+        [src]="image"
+        height="100px"
+        width="100px"
+        alt=""
+      />
+      <img
+        *ngIf="imagePreview"
+        [src]="imagePreview"
+        height="100px"
+        width="100px"
+        alt=""
+      />
     </div>
     <div>
       <form>
