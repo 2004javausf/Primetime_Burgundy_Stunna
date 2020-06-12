@@ -1,3 +1,12 @@
 <div>list all users here</div>
 <div>add button next to their name</div>
 <div>onClick change the focused profile above</div>
+<input type="text">
+<div *ngFor="let user of users">
+<div class="row">
+    <div class="col-3">
+        <img [src]="user.picLink" alt="" height="100px" width="100px">
+    </div>
+    <div class="col-9">{{user.firstName+" "+user.lastName}}</div>
+</div>
+</div>
