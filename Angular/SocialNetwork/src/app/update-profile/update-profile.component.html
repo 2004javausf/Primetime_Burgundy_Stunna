@@ -35,9 +35,8 @@
     <div class="row">
       <label for="fNameUpdate">
         First Name <span *ngIf="!edit">{{ user.firstName }}</span>
-        <input
+        <input [value]="user.firstName"
           *ngIf="edit"
-          [placeholder]="user.firstName"
           type="text"
           id="fNameUpdate"
         />
@@ -45,20 +44,27 @@
     </div>
     <div class="row">
       <label for="lNameUpdate">
-        Last Name <br />
-        <input [placeholder]="user.lastName" type="text" id="lNameUpdate" />
+        Last Name <span *ngIf="!edit">{{ user.lastName }}</span>
+        <input [value]="user.lastName"
+          *ngIf="edit" 
+          type="text" 
+          id="lNameUpdate" />
       </label>
     </div>
     <div class="row">
       <label for="emailUpdate">
-        Email <br />
-        <input [placeholder]="user.email" type="text" id="emailUpdate" />
+        Email <span>{{ user.email }}</span>
+        <!-- <input [value]="user.email" 
+          type="text" 
+          id="emailUpdate" /> -->
       </label>
     </div>
     <div class="row">
       <label for="unUpdate">
-        Username <br />
-        <input [placeholder]="user.username" type="text" id="unUpdate" />
+        Username <span>{{ user.username }}</span>
+        <!-- <input [value]="user.username" 
+          type="text" 
+          id="unUpdate" /> -->
       </label>
     </div>
 
@@ -66,7 +72,7 @@
       <label for="bioUpdate">
         About Me <br />
         <textarea
-          [placeholder]="user.aboutMe"
+          [value]="user.aboutMe"
           name="bioUpdate"
           id="bioUpdate"
           cols="50"
@@ -74,7 +80,7 @@
         ></textarea>
       </label>
     </div>
-    <button (click)="toggleEdit()">toggle edit</button>
+    <button (click)="toggleEdit()">Make/Cancel Changes</button>
     <input type="button" id="submitUpdate" value="Submit Changes" />
   </div>
 </div>
