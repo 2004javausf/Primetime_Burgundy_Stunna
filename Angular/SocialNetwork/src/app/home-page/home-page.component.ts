@@ -1,6 +1,6 @@
 import { UserService } from './../services/user.service';
 import { PostService } from './../services/post.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../interfaces/Post';
 import { User } from '../interfaces/User';
 
@@ -10,10 +10,12 @@ import { User } from '../interfaces/User';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
+  @Output() logout = new EventEmitter();
   view: string;
   posts: any[] = [];
   //current user
-  user: User;
+  @Input('user') user: User;
+
   //all users
   users;
   //focused user
@@ -21,6 +23,9 @@ export class HomePageComponent implements OnInit {
 
   changeFocus(user) {
     this.focus = user;
+  }
+  onLogout() {
+    this.logout.emit();
   }
   constructor(
     private postService: PostService,
@@ -30,7 +35,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.view = 'Feed';
     this.postService.getTestPosts().forEach((x) => this.posts.push(x));
-    this.user = this.userService.getSampleUser();
     this.focus = this.userService.getSampleUser();
     this.users = this.userService.getSampleUsers();
   }

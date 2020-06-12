@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { UserLogin } from './../interfaces/UserLogin';
 import { NewUser } from './../interfaces/NewUser';
 import { PostService } from './../services/post.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'login-page',
@@ -11,6 +11,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent implements OnInit {
+  @Output() userChange = new EventEmitter();
+
   constructor(
     private postService: PostService,
     private userService: UserService
@@ -20,17 +22,27 @@ export class LoginPageComponent implements OnInit {
 
   submitLogin(input: UserLogin) {
     //Submits UserLogin
-    this.userService.validateUserLogin(input).subscribe((x) => console.log(x));
+    this.userService.validateUserLogin(input).subscribe(
+      (response) => {
+        if (response == null) {
+          window.alert('Incorrect username or password');
+        } else {
+          this.userChange.emit(response);
+        }
+      },
+      (error) => {
+        window.alert('Error retrieving user');
+      }
+    );
   }
   submitRegisteration(input: NewUser) {
     //submit NewUser
     this.userService.addUser(input).subscribe(
       (response) => {
-        //returns UserData
-        //navigate to HomePage, passing UserData to the HomePage
+        this.userChange.emit(response);
       },
       (error) => {
-        //alert saying error from server
+        window.alert('Error creating user');
       }
     );
   }

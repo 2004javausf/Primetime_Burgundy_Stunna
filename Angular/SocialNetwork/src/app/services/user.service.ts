@@ -16,7 +16,7 @@ export class UserService {
   }
 
   validateUserLogin(input: UserLogin): Observable<User> {
-    return this.httpClient.post<User>(this.url + '/userlogin', input);
+    return this.httpClient.post<User>(this.url + '/login', input);
   }
   addUser(input: NewUser): Observable<User> {
     return this.httpClient.post<User>(this.url + '/adduser', input);
