@@ -5,11 +5,13 @@ import { PostService } from './../services/post.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Post } from '../interfaces/Post';
 import { User } from '../interfaces/User';
+import { SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
+  
 })
 export class HomePageComponent implements OnInit {
   @Output() logout = new EventEmitter();
