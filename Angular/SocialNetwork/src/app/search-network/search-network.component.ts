@@ -7,8 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SearchNetworkComponent implements OnInit {
   @Input('users') users;
-
+  focus;
   constructor() {}
 
-  ngOnInit(): void {}
+  submitSearch(Input){
+    console.log(Input);
+    this.focus = true;
+   
+  }
+
+  ngOnInit(): void {
+  }
 }
