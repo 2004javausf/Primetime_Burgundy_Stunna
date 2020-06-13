@@ -85,6 +85,7 @@
               [isLoading]="isLoading"
               [user]="user"
               [postFeed]="posts"
+              (newPost)="pushPost($event)"
             ></post-container>
           </div>
         </ng-template>

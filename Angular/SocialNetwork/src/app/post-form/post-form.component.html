@@ -1,4 +1,8 @@
 <div class="border rounded">
   <div class="ht1 color1">Create a new Squawk</div>
-  <user-content-input-form [user]="user" type="post"></user-content-input-form>
+  <user-content-input-form
+    (newPost)="pushPost($event)"
+    [user]="user"
+    type="post"
+  ></user-content-input-form>
 </div>

@@ -1,5 +1,5 @@
 <div id="postContainer" class="">
-  <post-form [user]="user"></post-form>
+  <post-form (newPost)="pushPost($event)" [user]="user"></post-form>
   <div *ngIf="isLoading">loading...</div>
   <post-container-feed
     *ngIf="!isLoading"

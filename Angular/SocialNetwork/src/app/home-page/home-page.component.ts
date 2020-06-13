@@ -33,6 +33,13 @@ export class HomePageComponent implements OnInit {
   onLogout() {
     this.logout.emit();
   }
+  pushPost(e) {
+    e.picLink = this.user.picLink;
+    e.isLiked = false;
+    e.likeCount = 0;
+    e.likes = 0;
+    this.posts.unshift(e);
+  }
   constructor(
     private postService: PostService,
     private userService: UserService,
@@ -69,7 +76,6 @@ export class HomePageComponent implements OnInit {
                   post.picLink = user.picLink;
                 }
               });
-              post.likes = 0;
               likes.forEach((like) => {
                 if (
                   this.user.username == like.username &&

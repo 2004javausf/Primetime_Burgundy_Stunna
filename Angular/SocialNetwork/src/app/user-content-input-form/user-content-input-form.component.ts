@@ -1,6 +1,6 @@
 import { PostService } from './../services/post.service';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class UserContentInputFormComponent implements OnInit {
   @Input('type') type;
   @Input('user') user;
+  @Output() newPost = new EventEmitter();
 
   imagePreview: Array<any>;
   selectedFile;
@@ -23,12 +24,12 @@ export class UserContentInputFormComponent implements OnInit {
   ) {}
 
   submitForm(input) {
-    if(this.selectedFile == null) {
+    if (this.selectedFile == null) {
       let post = {
-        username : this.user.username,
-        post : input.body
+        username: this.user.username,
+        post: input.body,
       };
-      this.postService.addPost(post).subscribe((x) => console.log(x));
+      this.postService.addPost(post).subscribe((x) => this.newPost.emit(x));
     } else {
       let arr = this.selectedFile.split(',');
       let post = {
@@ -36,7 +37,7 @@ export class UserContentInputFormComponent implements OnInit {
         post: input.body,
         image: arr[1],
       };
-      this.postService.addPost(post).subscribe((x) => console.log(x));
+      this.postService.addPost(post).subscribe((x) => this.newPost.emit(x));
     }
   }
   ngOnInit(): void {
