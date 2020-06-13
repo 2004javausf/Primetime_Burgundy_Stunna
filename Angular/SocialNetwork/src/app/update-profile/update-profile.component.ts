@@ -24,6 +24,17 @@ export class UpdateProfileComponent implements OnInit {
   selectedFile: File;
   image: SafeUrl;
 
+  updateUserInfo() {
+
+    this.user.firstName = ((document.getElementById("fName") as HTMLInputElement).value);
+    this.user.lastName = ((document.getElementById("lName") as HTMLInputElement).value);
+    this.user.bio = ((document.getElementById("thebio") as HTMLInputElement).value);
+    this.httpClient.post("http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/adduser", this.user)
+    .subscribe(x => {
+      console.log(x);
+    });
+  }
+
   toggleEdit() {
     this.edit = !this.edit;
   }
