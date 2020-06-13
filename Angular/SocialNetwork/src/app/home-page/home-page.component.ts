@@ -18,6 +18,7 @@ export class HomePageComponent implements OnInit {
   view: string;
   tab = 'all';
   focus;
+  focusPosts;
   isLoading = true;
   //current user
   @Input('user') user: User;
@@ -29,6 +30,7 @@ export class HomePageComponent implements OnInit {
 
   changeFocus(input) {
     this.focus = input;
+    this.focusPosts = this.posts.filter((x) => x.username == input.username);
   }
   onLogout() {
     this.logout.emit();

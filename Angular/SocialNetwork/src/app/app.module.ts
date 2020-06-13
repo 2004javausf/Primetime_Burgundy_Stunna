@@ -24,6 +24,7 @@ import { SearchNetworkComponent } from './search-network/search-network.componen
 import { ProfileInformationComponent } from './profile-information/profile-information.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { FocusedUserPostsComponent } from './focused-user-posts/focused-user-posts.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ProfileInformationComponent,
     PasswordResetComponent,
     AboutUsComponent,
+    FocusedUserPostsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

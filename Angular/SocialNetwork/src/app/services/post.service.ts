@@ -18,7 +18,9 @@ export class PostService {
   addPost(input): Observable<Post> {
     return this.httpClient.post<Post>(this.url + '/addpost', input);
   }
-
+  getPostsByUser(input) {
+    return this.httpClient.post(this.url + '/userordered', input);
+  }
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<Post[]>(this.url + '/allordered');
   }
