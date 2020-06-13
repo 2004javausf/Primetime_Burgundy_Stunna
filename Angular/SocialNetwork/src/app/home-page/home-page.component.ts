@@ -67,11 +67,15 @@ export class HomePageComponent implements OnInit {
                   post.picLink = user.picLink;
                 }
               });
+              post.likes = 0;
               likes.forEach((like) => {
-                if (this.user.username == like.username && post.id == like.pId) {
+                if (
+                  this.user.username == like.username &&
+                  post.id == like.pId
+                ) {
                   post.isLiked = true;
                   post.likeCount++;
-                } else if ((post.id == like.pId)) {
+                } else if (post.id == like.pId) {
                   post.likeCount++;
                 }
               });
