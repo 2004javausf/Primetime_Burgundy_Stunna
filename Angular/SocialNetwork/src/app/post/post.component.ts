@@ -26,9 +26,6 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.getImage();
     this.image2 = 'data:image/jpg;base64,' + this.post.image;
-    let thedate = this.post.date.split("T");
-    let thetime = (thedate[1].split("."))[0];
-    this.post.date = thedate[0] + " " + thetime;
   }
   postToggled() {
     this.showPost = !this.showPost;

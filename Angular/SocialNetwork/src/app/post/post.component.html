@@ -4,7 +4,7 @@
       <span *ngIf="!showPost">^</span>
       <span *ngIf="showPost">v</span>
     </a> -->
-    <div class="col-9">{{ post.date }}</div>
+    <div class="col-9">{{post.date | date: "medium"}}</div>
   </div>
   <div *ngIf="showPost">
     <div class="row">
