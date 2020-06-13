@@ -5,7 +5,8 @@
     [class.btn-info]="isSelected"
     (click)="onClick()"
   >
-    <span *ngIf="length == 0">Comment</span>
-    <span *ngIf="length > 0"><!--{{ "Fix this" }}-->Comment</span>
+    <span *ngIf="post.commentCount == 0">Comment</span>
+    <span *ngIf="post.commentCount == 1">{{ post.commentCount }} Comment</span>
+    <span *ngIf="post.commentCount > 1">{{ post.commentCount }} Comments</span>
   </button>
 </div>

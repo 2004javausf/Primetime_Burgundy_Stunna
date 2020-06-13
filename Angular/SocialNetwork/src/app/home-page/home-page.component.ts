@@ -51,6 +51,7 @@ export class HomePageComponent implements OnInit {
             posts.forEach((post: any) => {
               //Create Post Comments, adds them to the post obj
               post.comments = [];
+              post.commentCount = 0;
               comments.forEach((comment: any) => {
                 users.forEach((user) => {
                   if (user.username == comment.username) {
@@ -58,6 +59,7 @@ export class HomePageComponent implements OnInit {
                   }
                 });
                 if (post.id == comment.pId) {
+                  post.commentCount++;
                   post.comments.push(comment);
                 }
               });
