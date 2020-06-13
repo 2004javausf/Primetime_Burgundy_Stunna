@@ -23,13 +23,21 @@ export class UserContentInputFormComponent implements OnInit {
   ) {}
 
   submitForm(input) {
-    let arr = this.selectedFile.split(',');
-    let post = {
-      username: this.user.username,
-      post: input.body,
-      image: arr[1],
-    };
-    this.postService.addPost(post).subscribe((x) => console.log(x));
+    if(this.selectedFile == null) {
+      let post = {
+        username : this.user.username,
+        post : input.body
+      };
+      this.postService.addPost(post).subscribe((x) => console.log(x));
+    } else {
+      let arr = this.selectedFile.split(',');
+      let post = {
+        username: this.user.username,
+        post: input.body,
+        image: arr[1],
+      };
+      this.postService.addPost(post).subscribe((x) => console.log(x));
+    }
   }
   ngOnInit(): void {
     this.placeholderText = `Please enter your ${this.type}`;
