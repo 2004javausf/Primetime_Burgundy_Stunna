@@ -5,7 +5,7 @@
   <button>Submit</button>
 </form>
 <div *ngIf="searchResult">
-  <div *ngIf="searchResult == 'none'">
+  <div *ngIf="searchResult == []">
     Sorry, username not found.
   </div>
   <div *ngIf="searchResult != 'none'" class="row">
@@ -16,12 +16,10 @@
         width="100"
         alt=""
       />
-      {{ result.username }}
+      Andres include whatever you want here just make it clickable and make it
+      call the selectNewFocus function with their user info in it. Delete this
+      when you want.
     </div>
-    <div class="col-3">
-      <!-- <img [src]="searchResult.picLink" alt="" height="100px" width="100px" /> -->
-    </div>
-    <div class="col-9">{{ searchResult.username }}</div>
   </div>
 </div>
 <!-- <div id="search-component">

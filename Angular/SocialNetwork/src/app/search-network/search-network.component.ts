@@ -14,6 +14,8 @@ export class SearchNetworkComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   searchResult;
+  //TODO: Andres look at the home-page.compponent.html lines 61-67
+  //TODO: Use those as a reference, and sup up something similar with this components searchResult
 
   //function that searches for user by username, returns list if their are multiple that match the search
   searchFor(input) {

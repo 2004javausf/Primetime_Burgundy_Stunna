@@ -83,7 +83,10 @@ export class HomePageComponent implements OnInit {
       this.focus = this.userService.getSampleUser();
       //TODO find a better place to end the loading screen
       this.isLoading = false;
+      console.log('These are the post objects');
       console.log(this.posts);
+      console.log('these are the users');
+      console.log(this.users);
     });
   }
 }

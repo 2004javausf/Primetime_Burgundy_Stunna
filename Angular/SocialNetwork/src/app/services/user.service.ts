@@ -12,6 +12,7 @@ import { NewUser } from '../interfaces/NewUser';
 export class UserService {
   url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user';
   constructor(private httpClient: HttpClient) {}
+
   searchForUser(input) {
     return this.httpClient.post(this.url + '/usersearch', input);
   }
