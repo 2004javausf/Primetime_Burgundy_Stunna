@@ -20,7 +20,7 @@ export class PostService {
   }
 
   getPosts(): Observable<Post[]> {
-    return this.httpClient.get<Post[]>(this.url + '/all');
+    return this.httpClient.get<Post[]>(this.url + '/allordered');
   }
 
   getTestPosts() {
