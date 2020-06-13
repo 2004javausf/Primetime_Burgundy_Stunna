@@ -1,3 +1,4 @@
+import { UserLikesService } from './../services/user-likes.service';
 import { Comment } from './../interfaces/Comment';
 import { CommentService } from './../comment.service';
 import { UserService } from './../services/user.service';
@@ -15,20 +16,19 @@ import { SafeUrl } from '@angular/platform-browser';
 export class HomePageComponent implements OnInit {
   @Output() logout = new EventEmitter();
   view: string;
-  posts = [];
-  tab="all";
+  tab = 'all';
+  focus;
+  isLoading = true;
   //current user
   @Input('user') user: User;
 
-  //all users
+  posts = [];
   users;
-  //all comments
   comments;
-  //focused user
-  focus;
+  likes;
 
-  changeFocus(user) {
-    this.focus = user;
+  changeFocus(input) {
+    this.focus = input;
   }
   onLogout() {
     this.logout.emit();
@@ -36,35 +36,54 @@ export class HomePageComponent implements OnInit {
   constructor(
     private postService: PostService,
     private userService: UserService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private userLikesService: UserLikesService
   ) {}
 
   ngOnInit(): void {
-    
     this.view = 'Feed';
     this.postService.getPosts().subscribe((posts) => {
-      this.commentService.getAllComments().subscribe((comments) => {
-        let tmp = comments;
-        posts.forEach((post) => {
-          post.comments = [];
-          tmp.forEach((comment: any) => {
-            console.log(post.id);
-            if (post.id == comment.pId) {
-              post.comments.push(comment);
-            }
+      this.userService.getUsers().subscribe((users) => {
+        this.users = users;
+        this.userLikesService.getAllLikes().subscribe((likes) => {
+          this.likes = likes;
+          this.commentService.getAllComments().subscribe((comments) => {
+            posts.forEach((post: any) => {
+              //Create Post Comments, adds them to the post obj
+              post.comments = [];
+              comments.forEach((comment: any) => {
+                users.forEach((user) => {
+                  if (user.username == comment.username) {
+                    comment.picLink = user.picLink;
+                  }
+                });
+                if (post.id == comment.pId) {
+                  post.comments.push(comment);
+                }
+              });
+              //Add Post Authors picLink to post obj
+              users.forEach((user) => {
+                if (user.username == post.username) {
+                  post.picLink = user.picLink;
+                }
+              });
+              likes.forEach((like) => {
+                if (this.user.username == like.username) {
+                  post.isLiked = true;
+                  post.likeCount++;
+                } else if ((post.id = like.pId)) {
+                  post.likeCount++;
+                }
+              });
+            });
           });
         });
       });
       this.posts = posts;
+      this.focus = this.userService.getSampleUser();
+      //TODO find a better place to end the loading screen
+      this.isLoading = false;
       console.log(this.posts);
     });
-    // this.commentService.getAllComments().subscribe((comments) => {
-    //   this.comments = comments;
-    //   console.log('in commentService');
-    //   console.log(this.comments);
-    // });
-    this.focus = this.userService.getSampleUser();
-    this.users = this.userService.getSampleUsers();
-    console.log(this.users);
   }
 }

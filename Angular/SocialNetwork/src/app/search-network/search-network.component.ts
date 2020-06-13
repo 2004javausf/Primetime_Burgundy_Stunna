@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from './../services/user.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { isNull } from 'util';
 
 @Component({
   selector: 'search-network',
@@ -7,16 +9,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SearchNetworkComponent implements OnInit {
   @Input('users') users;
-  focus;
-  constructor() {}
+  @Output() changeFocus = new EventEmitter();
 
-  submitSearch(Input){
-    console.log(Input);
-    this.focus = true;
+  constructor(private userService: UserService) {}
 
-    this.users; 
+  searchResult;
+
+  //function that searches for user by username, returns list if their are multiple that match the search
+  searchFor(input) {
+    this.userService.searchForUser(input).subscribe((res) => {
+      console.log(res);
+      if (isNull(res)) {
+        this.searchResult = 'none';
+      } else {
+        this.searchResult = res;
+        console.log(this.searchResult);
+      }
+    });
   }
-
-  ngOnInit(): void {
+  //function that changes the user profile in the Profile-Information-Component
+  selectNewFocus(user) {
+    this.changeFocus.emit(user);
   }
+  ngOnInit(): void {}
 }

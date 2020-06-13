@@ -1,33 +1,41 @@
-<div>list all users here</div>
-<div>add button next to their name</div>
-<div>onClick change the focused profile above</div>
-<!--form #searchForm="ngForm" (ngSubmit)="submitSearch(searchForm.value)">
-<input type="text" ngModel #search = "ngModel" name="search">
+<h4 class="text-center">Enter a friends username</h4>
+<form #fSearch="ngForm" (ngSubmit)="searchFor(fSearch.value)">
+  <input type="text" ngModel #search="ngModel" name="username" />
 
-<button>Submit</button>
+  <button>Submit</button>
 </form>
-<div *ngIf="focus">
-<div *ngFor="let user of users">
-<div class="row">
-    <div class="col-3">
-        <img [src]="user.picLink" alt="" height="100px" width="100px">
+<div *ngIf="searchResult">
+  <div *ngIf="searchResult == 'none'">
+    Sorry, username not found.
+  </div>
+  <div *ngIf="searchResult != 'none'" class="row">
+    <div *ngFor="let result of searchResult">
+      <img
+        [src]="'data:image/jpg;base64,' + result.picLink"
+        height="100"
+        width="100"
+        alt=""
+      />
+      {{ result.username }}
     </div>
-    <div class="col-9">{{user.firstName+" "+user.lastName}}</div>
+    <div class="col-3">
+      <!-- <img [src]="searchResult.picLink" alt="" height="100px" width="100px" /> -->
+    </div>
+    <div class="col-9">{{ searchResult.username }}</div>
+  </div>
 </div>
-</div>
-</div-->
-<div id="search-component">
-    <h4><label for="search-box">Search</label></h4>
-  
-    <input #searchBox id="search-box" (input)="submitSearch(searchBox.value)" />
-    <ul class="search-result">
+<!-- <div id="search-component">
+  <h4><label for="search-box">Search by username</label></h4>
+
+  <input #searchBox id="search-box" (input)="submitSearch(searchBox.value)" />
+  <ul class="search-result">
     <div *ngIf="focus">
-      <li *ngFor="let user of users" >
+      <li *ngFor="let user of users">
         <a routerLink="/detail/">
-            <img [src]="user.picLink" alt="" height="100px" width="100px">
-            {{user.firstName+" "+user.lastName}}
+          <img [src]="user.picLink" alt="" height="100px" width="100px" />
+          {{ user.firstName + " " + user.lastName }}
         </a>
       </li>
     </div>
-    </ul>
-</div>
+  </ul>
+</div> -->

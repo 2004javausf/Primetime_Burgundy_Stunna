@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -7,6 +8,9 @@ import { Injectable } from '@angular/core';
 export class UserLikesService {
   url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/likes';
   constructor(private http: HttpClient) {}
+  getAllLikes(): Observable<any> {
+    return this.http.get<any>(this.url + '/all');
+  }
   getLikeCount(postId) {
     let input = {
       pId: postId,

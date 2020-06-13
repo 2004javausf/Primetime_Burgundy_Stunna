@@ -9,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PostContainerComponent implements OnInit {
   @Input('user') user;
   @Input('postFeed') posts;
+  @Input('isLoading') isLoading;
 
   constructor() {}
 

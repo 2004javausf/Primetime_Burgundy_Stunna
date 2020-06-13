@@ -8,8 +8,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./like-container.component.css'],
 })
 export class LikeContainerComponent implements OnInit {
-  @Input('isLiked') isSelected: boolean;
-  @Input('likeCount') likeCount: number;
   @Input('user') user;
   @Input('post') post;
 
@@ -17,19 +15,19 @@ export class LikeContainerComponent implements OnInit {
   constructor(private uselikesService: UserLikesService) {}
 
   ngOnInit(): void {
-    this.initIsSelected = this.isSelected;
+    // this.initIsSelected = this.isSelected;
   }
 
   onClick() {
     console.log(this.user.username);
-    this.isSelected = !this.isSelected;
-    if (this.isSelected == true) {
-      this.likeCount += 1;
+    this.post.isLiked = !this.post.isLiked;
+    if (this.post.isLiked == true) {
+      this.post.likeCount += 1;
       this.uselikesService
         .addLike(this.user.username, this.post.id)
         .subscribe((res) => console.log(res));
     } else {
-      this.likeCount -= 1;
+      this.post.likeCount -= 1;
       this.uselikesService
         .deletePostLike(this.user.username, this.post.id)
         .subscribe((res) => console.log(res));

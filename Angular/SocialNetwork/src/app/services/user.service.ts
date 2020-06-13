@@ -12,8 +12,8 @@ import { NewUser } from '../interfaces/NewUser';
 export class UserService {
   url = 'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user';
   constructor(private httpClient: HttpClient) {}
-  getPostIDsByUser(userID) {
-    return ['post.id'];
+  searchForUser(input) {
+    return this.httpClient.post(this.url + '/usersearch', input);
   }
   ResetPassword(input): Observable<User> {
     return this.httpClient.post<User>(this.url + '/changepass', input);

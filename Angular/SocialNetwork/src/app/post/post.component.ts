@@ -15,8 +15,7 @@ export class PostComponent implements OnInit {
 
   image: SafeUrl;
   image2;
-  isLiked;
-  likeCount;
+
   showPost: boolean = true;
   showComments: boolean;
   constructor(
@@ -27,14 +26,6 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.getImage();
     this.image2 = 'data:image/jpg;base64,' + this.post.image;
-    this.userLikesService
-      .getIsLiked(this.post.id, this.user.username)
-      .subscribe((x) =>
-        x == 0 ? (this.isLiked = false) : (this.isLiked = true)
-      );
-    this.userLikesService.getLikeCount(this.post.id).subscribe((x) => {
-      this.likeCount = x[0];
-    });
   }
   postToggled() {
     this.showPost = !this.showPost;

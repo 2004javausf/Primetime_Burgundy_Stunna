@@ -42,7 +42,7 @@
             [class.inactiveTab]="tab != 'all'"
             class="col-6 inactiveTab"
           >
-            List All
+            All
           </div>
           <div
             (click)="tab = 'search'"
@@ -53,16 +53,23 @@
             Search
           </div>
         </div>
+      </div>
+      <div class="tabBody" *ngIf="view == 'SearchNetwork'">
         <div *ngIf="tab == 'all'">
-          <div class="text-center">All users</div>
-          <div *ngFor="let item of users">
-            <a href="#">{{item.username}}</a>
+          <h4 class="text-center">Scroll through our friends</h4>
+          <div class="scrollList">
+            <div *ngFor="let item of users">
+              <button class="btn btn-block btn-secondary" href="#">
+                {{ item.username }}
+              </button>
+            </div>
           </div>
         </div>
         <div *ngIf="tab == 'search'">
-          <div>search</div>
-          <div>results</div>
-          <search-network [users]="users"></search-network>
+          <search-network
+            (changFocus)="changeFocus($event)"
+            [users]="users"
+          ></search-network>
         </div>
       </div>
     </div>
@@ -71,7 +78,11 @@
       <div [ngSwitch]="view">
         <ng-template [ngSwitchCase]="'Feed'">
           <div class="">
-            <post-container [user]="user" [postFeed]="posts"></post-container>
+            <post-container
+              [isLoading]="isLoading"
+              [user]="user"
+              [postFeed]="posts"
+            ></post-container>
           </div>
         </ng-template>
         <ng-template [ngSwitchCase]="'UpdateProfile'">
@@ -82,10 +93,8 @@
         <ng-template [ngSwitchCase]="'SearchNetwork'">
           <div class="">
             <profile-information [focus]="focus"></profile-information>
-            
           </div>
         </ng-template>
-        
       </div>
     </div>
   </div>

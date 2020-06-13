@@ -1,6 +1,11 @@
 <div class="row border rounded">
   <!-- <div [ngStyle]="picture" class="avatar"></div> -->
-  <img [src]="image" height="50px" width="50px" alt="" />
+  <img
+    [src]="'data:image/jpg;base64,' + comment.picLink"
+    height="50px"
+    width="50px"
+    alt=""
+  />
   <div class="col-10">
     {{ comment.username }}
     <hr class="m-0 p-0" />

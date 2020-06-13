@@ -13,12 +13,22 @@
           {{ post.username }}
         </div>
         <!-- <div [ngStyle]="picture" class="avatar"></div> -->
-        <img [src]="image" height="100px" width="100px" alt="" />
+        <img
+          [src]="'data:image/jpg;base64,' + post.picLink"
+          height="100px"
+          width="100px"
+          alt=""
+        />
       </div>
 
       <div class="col-9">
         <hr />
-        <img [src]="image2" height="100px" width="100px" alt="" />
+        <img
+          [src]="'data:image/jpg;base64,' + post.image"
+          height="100px"
+          width="100px"
+          alt=""
+        />
         <div class="border">{{ post.post }}</div>
       </div>
     </div>
@@ -28,8 +38,6 @@
         [user]="user"
         [post]="post"
         class="col-6"
-        [isLiked]="isLiked"
-        [likeCount]="likeCount"
       ></like-container>
       <comments-toggle
         (toggled)="commentsToggled()"

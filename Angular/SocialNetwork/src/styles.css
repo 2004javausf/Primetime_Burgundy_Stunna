@@ -26,9 +26,7 @@
   height: 10px;
   border-radius: 5px;
 }
-.col-3 {
-  min-width: 100px;
-}
+
 .row {
   flex-wrap: nowrap;
 }
@@ -55,4 +53,18 @@ textarea {
 .inactiveTab {
   border-bottom: 1px solid black;
   background-color: lightgray;
+}
+.tabBody {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-radius: 0 0 5px 5px;
+  height: 400px;
+}
+.scrollList {
+  border: 1px solid black;
+  max-height: 340px;
+  overflow-y: scroll;
+  margin: 1em;
+  overflow-x: hidden;
 }
