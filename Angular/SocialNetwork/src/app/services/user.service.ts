@@ -45,7 +45,7 @@ export class UserService {
   getSampleUsers() {
     return [
       {
-        firstName: 'Maurie',
+        username: 'Maurie',
         lastName: 'G',
         email: 'email@email.com',
         aboutMe: 'Sherlock stuff',
@@ -53,7 +53,7 @@ export class UserService {
           'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       },
       {
-        firstName: 'Andres',
+        username: 'Andres',
         lastName: 'A',
         email: 'email@email.com',
         aboutMe: 'Guitar stuff',
@@ -61,7 +61,7 @@ export class UserService {
           'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       },
       {
-        firstName: 'Nathan',
+        username: 'Nathan',
         lastName: 'A',
         email: 'email@email.com',
         aboutMe: 'Climbing steep overhangs',
@@ -69,7 +69,7 @@ export class UserService {
           'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       },
       {
-        firstName: 'Brad',
+        username: 'Brad',
         lastName: 'B',
         email: 'email@email.com',
         aboutMe: 'not much',

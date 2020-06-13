@@ -34,7 +34,39 @@
       >
         Search Network
       </button>
+      <div class="container" *ngIf="view == 'SearchNetwork'">
+        <div class="row">
+          <div
+            (click)="tab = 'all'"
+            [class.activeTab]="tab == 'all'"
+            [class.inactiveTab]="tab != 'all'"
+            class="col-6 inactiveTab"
+          >
+            List All
+          </div>
+          <div
+            (click)="tab = 'search'"
+            [class.activeTab]="tab == 'search'"
+            [class.inactiveTab]="tab != 'search'"
+            class="col-6 inactiveTab"
+          >
+            Search
+          </div>
+        </div>
+        <div *ngIf="tab == 'all'">
+          <div class="text-center">All users</div>
+          <div *ngFor="let item of users">
+            <a href="#">{{item.username}}</a>
+          </div>
+        </div>
+        <div *ngIf="tab == 'search'">
+          <div>search</div>
+          <div>results</div>
+          <search-network [users]="users"></search-network>
+        </div>
+      </div>
     </div>
+
     <div class="col-9">
       <div [ngSwitch]="view">
         <ng-template [ngSwitchCase]="'Feed'">
@@ -50,9 +82,10 @@
         <ng-template [ngSwitchCase]="'SearchNetwork'">
           <div class="">
             <profile-information [focus]="focus"></profile-information>
-            <search-network [users]="users"></search-network>
+            
           </div>
         </ng-template>
+        
       </div>
     </div>
   </div>

@@ -13,7 +13,8 @@ export class SearchNetworkComponent implements OnInit {
   submitSearch(Input){
     console.log(Input);
     this.focus = true;
-   
+
+    this.users; 
   }
 
   ngOnInit(): void {

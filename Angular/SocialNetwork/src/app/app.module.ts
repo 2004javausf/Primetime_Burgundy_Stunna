@@ -25,6 +25,7 @@ import { ProfileInformationComponent } from './profile-information/profile-infor
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

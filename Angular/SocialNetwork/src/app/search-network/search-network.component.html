@@ -1,7 +1,7 @@
 <div>list all users here</div>
 <div>add button next to their name</div>
 <div>onClick change the focused profile above</div>
-<form #searchForm="ngForm" (ngSubmit)="submitSearch(searchForm.value)">
+<!--form #searchForm="ngForm" (ngSubmit)="submitSearch(searchForm.value)">
 <input type="text" ngModel #search = "ngModel" name="search">
 
 <button>Submit</button>
@@ -15,4 +15,19 @@
     <div class="col-9">{{user.firstName+" "+user.lastName}}</div>
 </div>
 </div>
+</div-->
+<div id="search-component">
+    <h4><label for="search-box">Search</label></h4>
+  
+    <input #searchBox id="search-box" (input)="submitSearch(searchBox.value)" />
+    <ul class="search-result">
+    <div *ngIf="focus">
+      <li *ngFor="let user of users" >
+        <a routerLink="/detail/">
+            <img [src]="user.picLink" alt="" height="100px" width="100px">
+            {{user.firstName+" "+user.lastName}}
+        </a>
+      </li>
+    </div>
+    </ul>
 </div>

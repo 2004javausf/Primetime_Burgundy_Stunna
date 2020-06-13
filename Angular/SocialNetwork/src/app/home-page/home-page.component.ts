@@ -15,7 +15,8 @@ import { SafeUrl } from '@angular/platform-browser';
 export class HomePageComponent implements OnInit {
   @Output() logout = new EventEmitter();
   view: string;
-  posts: any[] = [];
+  posts = [];
+  tab="all";
   //current user
   @Input('user') user: User;
 
@@ -39,6 +40,7 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    
     this.view = 'Feed';
     this.postService.getPosts().subscribe((posts) => {
       this.commentService.getAllComments().subscribe((comments) => {
@@ -63,5 +65,6 @@ export class HomePageComponent implements OnInit {
     // });
     this.focus = this.userService.getSampleUser();
     this.users = this.userService.getSampleUsers();
+    console.log(this.users);
   }
 }

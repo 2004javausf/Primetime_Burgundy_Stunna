@@ -46,3 +46,13 @@ textarea {
 .color2 {
   background-color: lightgray;
 }
+
+.activeTab {
+  border: 1px solid black;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+}
+.inactiveTab {
+  border-bottom: 1px solid black;
+  background-color: lightgray;
+}
