@@ -1,6 +1,6 @@
 <div class="bg-secondary container">
   <div class="row pt-5 pb-5">
-    <h1 class="h1 col-3">Squawker</h1>
+    <h1 class="h1 col-3" id="squawwwk">Squawker</h1>
     <div class="col-3"></div>
     <div class="col-6 m-0 text-right">
       <form
@@ -45,9 +45,9 @@
         *ngIf="passwordReset"
       ></password-reset>
       <a *ngIf="!passwordReset" (click)="togglePasswordReset()"
-        >Reset Password</a
+         id="respass">Reset Password</a
       >
-      <a *ngIf="passwordReset" (click)="togglePasswordReset()">Back to login</a>
+      <a *ngIf="passwordReset" (click)="togglePasswordReset()" id="respassback">Back to login</a>
     </div>
   </div>
 </div>
