@@ -2,7 +2,7 @@
 <form #fSearch="ngForm" (ngSubmit)="searchFor(fSearch.value)">
   <input type="text" ngModel #search="ngModel" name="username" />
 
-  <button>Submit</button>
+  <button class="btn-secondary">Submit</button>
 </form>
 <div *ngIf="searchResult">
   <div *ngIf="searchResult == []">
