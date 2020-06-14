@@ -16,15 +16,12 @@
 }
 .ht1 {
   height: 38px;
-  border-radius: 5px;
 }
 .ht2 {
   height: 30px;
-  border-radius: 5px;
 }
 .ht3 {
   height: 10px;
-  border-radius: 5px;
 }
 
 .row {
@@ -42,7 +39,7 @@ textarea {
   background-color: gray;
 }
 .color2 {
-  background-color: lightgray;
+  background-color: #dae0e5;
 }
 
 .activeTab {
@@ -67,4 +64,33 @@ textarea {
   overflow-y: scroll;
   margin: 1em;
   overflow-x: hidden;
+}
+/* .feed-container {
+  height: 600px;
+  overflow: auto;
+} */
+.post-topBar {
+  border-radius: 5px 5px 0 0;
+  margin-top: 20px;
+}
+.post-botBar {
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 10px;
+}
+.post-borders {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+.post-shadow {
+  box-shadow: 4px 4px 7px #6c757dc7;
+  border-radius: 5px;
+}
+.comment-form-borders {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin: -1px;
+}
+.comment-borders {
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }

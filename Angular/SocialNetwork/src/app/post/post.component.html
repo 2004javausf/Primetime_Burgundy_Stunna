@@ -1,17 +1,18 @@
-<div class="container border">
-  <div class="row color2 ht2">
+<div class="container rounded post-shadow">
+  <div class="row color2 ht2 post-topBar">
     <!-- <a class="col-3 close text-left pl-3" (click)="postToggled()">
       <span *ngIf="!showPost">^</span>
       <span *ngIf="showPost">v</span>
     </a> -->
-    <div class="col-9">{{post.date | date: "medium"}}</div>
+    <div class="col-9">{{ post.date | date: "medium" }}</div>
   </div>
+
   <div *ngIf="showPost">
-    <div class="row">
-      <div class="col-3">
-        <div class="text-center">
+    <div class="row post-borders">
+      <div class="col-3 text-center">
+        <h4 class="text-center">
           {{ post.username }}
-        </div>
+        </h4>
         <!-- <div [ngStyle]="picture" class="avatar"></div> -->
         <img
           [src]="'data:image/jpg;base64,' + post.picLink"
@@ -29,11 +30,11 @@
           width="100px"
           alt=""
         />
-        <div class="border">{{ post.post }}</div>
+        <div class="">{{ post.post }}</div>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row post-borders">
       <like-container
         [user]="user"
         [post]="post"
@@ -53,5 +54,8 @@
     [comments]="post.comments"
     *ngIf="showComments"
   ></comment-container>
+
+  <div class="row color2 ht3 post-botBar">
+    <div class="col-9"></div>
+  </div>
 </div>
-<div class="ht3 color2"></div>

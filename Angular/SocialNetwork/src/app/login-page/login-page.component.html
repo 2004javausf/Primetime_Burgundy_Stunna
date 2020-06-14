@@ -1,18 +1,18 @@
 <div class="bg-secondary container">
-  <div class="row p-5">
-    <h1 class="h1 col-3">ProjectName</h1>
+  <div class="row pt-5 pb-5">
+    <h1 class="h1 col-3">Squawker</h1>
     <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-6 m-0 text-right">
       <form
         *ngIf="!passwordReset"
         #loginForm="ngForm"
         (submit)="submitLogin(loginForm.value)"
-        class="form-inline"
+        class="d-inline-flex"
       >
-        <div class="form-group">
+        <div class="">
           <input
             ngModel
-            class="form-control"
+            class="inLine"
             #username="ngModel"
             required
             placeholder="Username"
@@ -20,10 +20,10 @@
             name="username"
           />
         </div>
-        <div class="form-group">
+        <div class="">
           <input
             ngModel
-            class="form-control"
+            class="inLine"
             #password="ngModel"
             required
             placeholder="Password"
@@ -31,9 +31,9 @@
             name="password"
           />
         </div>
-        <div class="form-group">
+        <div class="">
           <input
-            class="form-control btn btn-primary"
+            class="inLine form-control btn btn-primary"
             [disabled]="!loginForm.valid"
             type="submit"
             value="submit"
@@ -44,12 +44,10 @@
         (onReset)="onReset($event)"
         *ngIf="passwordReset"
       ></password-reset>
-      <a *ngIf="!passwordReset" (click)="togglePasswordReset()" href="#"
+      <a *ngIf="!passwordReset" (click)="togglePasswordReset()"
         >Reset Password</a
       >
-      <a *ngIf="passwordReset" (click)="togglePasswordReset()" href="#"
-        >Back to login</a
-      >
+      <a *ngIf="passwordReset" (click)="togglePasswordReset()">Back to login</a>
     </div>
   </div>
 </div>
@@ -59,7 +57,7 @@
       <about-us></about-us>
     </div>
     <div class="col-6">
-      For sign-up
+      <h3 class="pt-3 pb-3">Sign up</h3>
       <form
         #registerForm="ngForm"
         (submit)="submitRegisteration(registerForm.value)"
@@ -68,7 +66,7 @@
         <div class="form-group">
           <input
             ngModel
-            class="form-control"
+            class="form-control shadow1"
             #username="ngModel"
             required
             placeholder="username"
@@ -79,7 +77,7 @@
         <div class="form-group">
           <input
             ngModel
-            class="form-control"
+            class="form-control shadow1"
             #password="ngModel"
             required
             placeholder="Password"
@@ -90,7 +88,7 @@
         <div class="form-group">
           <input
             ngModel
-            class="form-control"
+            class="form-control shadow1"
             #email="ngModel"
             required
             placeholder="email"
@@ -101,7 +99,7 @@
         <div class="form-group">
           <input
             ngModel
-            class="form-control"
+            class="form-control shadow1"
             #firstName="ngModel"
             required
             placeholder="firstName"
@@ -112,7 +110,7 @@
         <div class="form-group">
           <input
             ngModel
-            class="form-control"
+            class="form-control shadow1"
             #lastName="ngModel"
             required
             placeholder="lastName"
@@ -122,7 +120,7 @@
         </div>
         <div class="form-group">
           <input
-            class="btn btn-primary form-control"
+            class="btn btn-primary form-control shadow1"
             [disabled]="!registerForm.valid"
             type="submit"
             value="Sign-up"

@@ -8,20 +8,22 @@
   <div *ngIf="searchResult == []">
     Sorry, username not found.
   </div>
-  <div *ngIf="searchResult != 'none'" class="row">
+  <div *ngIf="searchResult != 'none'">
     <div *ngFor="let result of searchResult">
-      <img
+      <div class="row">
+        <button
+          (click)="selectNewFocus(result)"
+          class="btn btn-block btn-secondary col-4"
+        >
+          {{ result.username }}
+        </button>
+      </div>
+      <!-- <img
         [src]="'data:image/jpg;base64,' + result.picLink"
         height="100"
         width="100"
         alt=""
-      />
-      <button
-        (click)="selectNewFocus(result)"
-        class="btn btn-block btn-secondary"
-      >
-        View Posts
-      </button>
+      /> -->
     </div>
   </div>
 </div>

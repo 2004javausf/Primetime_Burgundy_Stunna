@@ -33,14 +33,13 @@ export class UserService {
   getSampleUser() {
     return {
       id: 0,
-      username: 'Ura',
-      password: 'wzrd',
-      firstName: 'Harry',
-      lastName: 'Potter',
-      picLink:
-        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      email: 'harrypotter@revature.com',
-      aboutMe: 'I like magic',
+      username: '-',
+      password: '-',
+      firstName: '-',
+      lastName: '',
+      picLink: null,
+      email: '-',
+      aboutMe: '-',
     };
   }
   getSampleUsers() {

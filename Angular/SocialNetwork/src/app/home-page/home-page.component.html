@@ -98,7 +98,10 @@
           <div class="">
             <profile-information [focus]="focus"></profile-information>
             <div *ngFor="let post of focusPosts">
-              <focused-user-posts [post]="post"></focused-user-posts>
+              <focused-user-posts
+                [focus]="focus"
+                [post]="post"
+              ></focused-user-posts>
             </div>
           </div>
         </ng-template>
