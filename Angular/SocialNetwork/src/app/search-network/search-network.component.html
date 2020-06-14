@@ -16,27 +16,12 @@
         width="100"
         alt=""
       />
-      <button (click)="selectNewFocus(users)" class="btn btn-block btn-secondary">
-          View Posts
+      <button
+        (click)="selectNewFocus(result)"
+        class="btn btn-block btn-secondary"
+      >
+        View Posts
       </button>
-     <!-- Andres include whatever you want here just make it clickable and make it
-      call the selectNewFocus function with their user info in it. Delete this
-      when you want.-->
     </div>
   </div>
 </div>
-<!-- <div id="search-component">
-  <h4><label for="search-box">Search by username</label></h4>
-
-  <input #searchBox id="search-box" (input)="submitSearch(searchBox.value)" />
-  <ul class="search-result">
-    <div *ngIf="focus">
-      <li *ngFor="let user of users">
-        <a routerLink="/detail/">
-          <img [src]="user.picLink" alt="" height="100px" width="100px" />
-          {{ user.firstName + " " + user.lastName }}
-        </a>
-      </li>
-    </div>
-  </ul>
-</div> -->

@@ -32,7 +32,6 @@ export class SearchNetworkComponent implements OnInit {
   //function that changes the user profile in the Profile-Information-Component
   selectNewFocus(user) {
     this.changeFocus.emit(user);
-    console.log("changeFocus");
   }
   ngOnInit(): void {}
 }
