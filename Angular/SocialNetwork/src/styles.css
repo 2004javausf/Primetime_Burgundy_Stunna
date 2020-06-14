@@ -1,3 +1,4 @@
+
 .avatar {
   margin: 10px auto;
   border: 1px solid black;
@@ -94,3 +95,22 @@ textarea {
   border: 1px solid lightgray;
   border-radius: 5px;
 }
+
+body {
+	background: linear-gradient(-45deg, #90ee52, #7be73c, #235bd5, #2361d5);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+

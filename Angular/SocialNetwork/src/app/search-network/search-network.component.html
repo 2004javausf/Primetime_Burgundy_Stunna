@@ -1,8 +1,8 @@
-<h4 class="text-center">Enter a friends username</h4>
+<h4 class="text-center">🅴🅽🆃🅴🆁 🅰 🅵🆁🅸🅴🅽🅳🆂 🆄🆂🅴🆁🅽🅰🅼🅴</h4>
 <form #fSearch="ngForm" (ngSubmit)="searchFor(fSearch.value)">
   <input type="text" ngModel #search="ngModel" name="username" />
 
-  <button class="btn-secondary">Submit</button>
+  <button class="d-block btn btn-outline-light">Submit</button>
 </form>
 <div *ngIf="searchResult">
   <div *ngIf="searchResult == []">
@@ -13,7 +13,7 @@
       <div class="row">
         <button
           (click)="selectNewFocus(result)"
-          class="btn btn-block btn-secondary col-5"
+          class="d-block btn btn-outline-light"
         >
           {{ result.username }}
         </button>

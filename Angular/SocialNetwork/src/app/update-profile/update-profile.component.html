@@ -1,4 +1,4 @@
-<h2 style="font-size: large;">Update Profile Information</h2>
+<h2 style="font-size: large;">🆄🅿🅳🅰🆃🅴 🅿🆁🅾🅵🅸🅻🅴 🅸🅽🅵🅾🆁🅼🅰🆃🅸🅾🅽</h2>
 <div class="row">
   <div class="col-4 text-center m-a">
     <div class="row container">
@@ -27,29 +27,33 @@
           accept="image/*"
           (change)="onFileChanged($event)"
         />
-        <input type="submit" id="btn1" (click)="onUpload()" />
+        <input class="d-block btn btn-outline-light" type="submit" id="btn1" (click)="onUpload()" />
       </form>
     </div>
   </div>
  
 <div class="UserInfo" id="userrInfo">
-  First Name : {{user.firstName}}
+  🅵🅸🆁🆂🆃 🅽🅰🅼🅴 : {{user.firstName}}
   <br>
-  Last Name : {{user.lastName}}
+  🅻🅰🆂🆃 🅽🅰🅼🅴 : {{user.lastName}}
   <br>
-  Username : {{user.username}}
+  🆄🆂🅴🆁🅽🅰🅼🅴 : {{user.username}}
   <br>
-  Email : {{user.email}}
+  🅴🅼🅰🅸🅻 : {{user.email}}
   <br>
-  Bio : {{user.bio}}
+  🅱🅸🅾 : {{user.bio}}
 </div>
 <div class="UpdateInfo" id="updateInfoo">
-  <p>Update User Information</p>
+  <p>🆄🅿🅳🅰🆃🅴 🆄🆂🅴🆁 🅸🅽🅵🅾🆁🅼🅰🆃🅸🅾🅽</p>
   <input type="text" placeholder="First Name" id="fName">
   <br>
   <input type="text" placeholder="Last Name" id="lName">
   <br>
   <textarea placeholder="Bio" rows="4" cols="50" id="thebio"></textarea>
   <br>
+<<<<<<< HEAD
   <button type="submit" (click)="updateUserInfo()" id="submitthechange">Submit Changes</button>
+=======
+  <button class="d-block btn btn-outline-light" type="submit" (click)="updateUserInfo()">Submit Changes</button>
+>>>>>>> cc21216cbcd03058def5cfc6f9f4d72527827ecc
 </div>

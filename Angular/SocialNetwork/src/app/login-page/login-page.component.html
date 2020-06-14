@@ -1,6 +1,11 @@
-<div class="bg-secondary container">
+
+<div class="container">
   <div class="row pt-5 pb-5">
+<<<<<<< HEAD
     <h1 class="h1 col-3" id="squawwwk">Squawker</h1>
+=======
+    <h1 class="h1 col-3">🆂🆀🆄🅰🆆🅺🅴🆁</h1>
+>>>>>>> cc21216cbcd03058def5cfc6f9f4d72527827ecc
     <div class="col-3"></div>
     <div class="col-6 m-0 text-right">
       <form
@@ -33,7 +38,7 @@
         </div>
         <div class="">
           <input
-            class="inLine form-control btn btn-primary"
+            class="d-block btn btn-outline-light"
             [disabled]="!loginForm.valid"
             type="submit"
             value="submit"
@@ -45,7 +50,11 @@
         *ngIf="passwordReset"
       ></password-reset>
       <a *ngIf="!passwordReset" (click)="togglePasswordReset()"
+<<<<<<< HEAD
          id="respass">Reset Password</a
+=======
+        >🆁🅴🆂🅴🆃 🅿🅰🆂🆂🆆🅾🆁🅳</a
+>>>>>>> cc21216cbcd03058def5cfc6f9f4d72527827ecc
       >
       <a *ngIf="passwordReset" (click)="togglePasswordReset()" id="respassback">Back to login</a>
     </div>
@@ -57,7 +66,7 @@
       <about-us></about-us>
     </div>
     <div class="col-6">
-      <h3 class="pt-3 pb-3">Sign up</h3>
+      <h3 class="pt-3 pb-3">🆂🅸🅶🅽 🆄🅿</h3>
       <form
         #registerForm="ngForm"
         (submit)="submitRegisteration(registerForm.value)"
