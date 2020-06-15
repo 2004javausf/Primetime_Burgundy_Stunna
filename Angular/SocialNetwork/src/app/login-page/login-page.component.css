@@ -1,9 +1,7 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
-.shadow1 {
-  box-shadow: 2px 2px 5px grey;
-}
+
 .inLine {
   padding: 0.375rem 0.75rem;
   width: 100%;

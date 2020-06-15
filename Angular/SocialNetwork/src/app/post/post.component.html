@@ -4,11 +4,13 @@
       <span *ngIf="!showPost">^</span>
       <span *ngIf="showPost">v</span>
     </a> -->
-    <div class="col-9">{{ post.date | date: "medium" }}</div>
+    <div style="padding-top: 5px;" class="col-9">
+      {{ post.date | date: "medium" }}
+    </div>
   </div>
 
   <div *ngIf="showPost">
-    <div class="row post-borders">
+    <div class="post-bg2 row post-borders">
       <div class="col-3 text-center">
         <h4 class="text-center">
           {{ post.username }}
@@ -24,13 +26,15 @@
 
       <div class="col-9">
         <hr />
-        <img
-          [src]="'data:image/jpg;base64,' + post.image"
-          height="100px"
-          width="100px"
-          alt=""
-        />
-        <div class="">{{ post.post }}</div>
+        <div class="row">
+          <img
+            [src]="'data:image/jpg;base64,' + post.image"
+            height="100px"
+            width="100px"
+            alt=""
+          />
+          <div class="col-8">{{ post.post }}</div>
+        </div>
       </div>
     </div>
 

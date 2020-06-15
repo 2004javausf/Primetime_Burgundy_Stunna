@@ -40,7 +40,11 @@ export class HomePageComponent implements OnInit {
     e.isLiked = false;
     e.likeCount = 0;
     e.likes = 0;
+    e.comments = [];
     this.posts.unshift(e);
+  }
+  pushUser(e) {
+    this.user = e;
   }
   constructor(
     private postService: PostService,

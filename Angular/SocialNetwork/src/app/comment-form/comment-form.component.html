@@ -17,9 +17,10 @@
       <form #f2="ngForm" (ngSubmit)="submitCommentForm(f2.value)">
         <textarea
           ngModel
+          [(ngModel)]="textValue"
           #body="ngModel"
           class="form-control"
-          style="border-radius: 5px 5px 0 0;"
+          style="border-radius: 0 5px 0 0;"
           placeholder="Please enter your comment"
           name="body"
           cols="30"
@@ -27,7 +28,7 @@
         ></textarea>
         <div class="ht2">
           <input
-            style="border-radius: 0 0 5px 5px;"
+            style="border-radius: 0 0 5px 0;"
             type="submit"
             class="btn btn-info form-control"
             value="submit comment"

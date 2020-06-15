@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class PostComponent implements OnInit {
   @Input('user') user;
   @Input('in') post;
+  @Input() currUser;
 
   image: SafeUrl;
   image2;

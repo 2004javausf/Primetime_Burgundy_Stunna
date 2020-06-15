@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { UserService } from './../services/user.service';
 import { ImageUploadService } from './../services/image-upload.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -11,8 +11,12 @@ import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 })
 export class UpdateProfileComponent implements OnInit {
   @Input('user') user;
+  @Output() newUser = new EventEmitter();
   edit = false;
   imagePreview;
+  firstNameValue = '';
+  lastNameValue = '';
+  bioValue = '';
   ngOnInit() {
     this.getImage();
   }
@@ -25,14 +29,28 @@ export class UpdateProfileComponent implements OnInit {
   image: SafeUrl;
 
   updateUserInfo() {
-
-    this.user.firstName = ((document.getElementById("fName") as HTMLInputElement).value);
-    this.user.lastName = ((document.getElementById("lName") as HTMLInputElement).value);
-    this.user.bio = ((document.getElementById("thebio") as HTMLInputElement).value);
-    this.httpClient.post("http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/adduser", this.user)
-    .subscribe(x => {
-      console.log(x);
-    });
+    this.user.firstName = (document.getElementById(
+      'fName'
+    ) as HTMLInputElement).value;
+    this.user.lastName = (document.getElementById(
+      'lName'
+    ) as HTMLInputElement).value;
+    this.user.bio = (document.getElementById(
+      'thebio'
+    ) as HTMLInputElement).value;
+    this.httpClient
+      .post(
+        'http://ec2-3-133-98-43.us-east-2.compute.amazonaws.com:9000/user/adduser',
+        this.user
+      )
+      .subscribe((x) => {
+        console.log(x);
+        window.alert('successfully updated');
+        this.newUser.emit(this.user);
+        this.firstNameValue = '';
+        this.lastNameValue = '';
+        this.bioValue = '';
+      });
   }
 
   toggleEdit() {
@@ -75,6 +93,9 @@ export class UpdateProfileComponent implements OnInit {
           this.image = this.sanitizer.bypassSecurityTrustResourceUrl(
             'data:image/jpg;base64,' + data
           );
+          window.alert('successfully updated');
+          this.user.picLink = data;
+          this.newUser.emit(this.user);
         },
         (error) => {
           console.log('no such user');

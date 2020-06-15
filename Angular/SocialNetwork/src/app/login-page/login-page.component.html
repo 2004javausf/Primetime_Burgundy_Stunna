@@ -1,9 +1,8 @@
-
 <div class="container">
   <div class="row pt-5 pb-5">
     <h1 class="h1 col-3">🆂🆀🆄🅰🆆🅺🅴🆁</h1>
     <div class="col-3"></div>
-    <div class="col-6 m-0 text-right">
+    <div class="col-6 text-right">
       <form
         *ngIf="!passwordReset"
         #loginForm="ngForm"
@@ -13,7 +12,7 @@
         <div class="">
           <input
             ngModel
-            class="inLine"
+            class="form-control shadow1"
             #username="ngModel"
             required
             placeholder="Username"
@@ -24,7 +23,7 @@
         <div class="">
           <input
             ngModel
-            class="inLine"
+            class="form-control shadow1"
             #password="ngModel"
             required
             placeholder="Password"
@@ -34,7 +33,7 @@
         </div>
         <div class="">
           <input
-            class="d-block btn btn-outline-light"
+            class="form-control shadow1 pl-4 pr-4 btn btn-outline-light"
             [disabled]="!loginForm.valid"
             type="submit"
             value="submit"
@@ -46,8 +45,11 @@
         *ngIf="passwordReset"
       ></password-reset>
       <a *ngIf="!passwordReset" (click)="togglePasswordReset()"
-        >🆁🅴🆂🅴🆃 🅿🅰🆂🆂🆆🅾🆁🅳</a>
-      <a *ngIf="passwordReset" (click)="togglePasswordReset()" id="respassback">Back to login</a>
+        >🆁🅴🆂🅴🆃 🅿🅰🆂🆂🆆🅾🆁🅳</a
+      >
+      <a *ngIf="passwordReset" (click)="togglePasswordReset()" id="respassback"
+        >Back to login</a
+      >
     </div>
   </div>
 </div>
@@ -120,7 +122,7 @@
         </div>
         <div class="form-group">
           <input
-            class="btn btn-primary form-control shadow1"
+            class="btn btn-outline-light form-control shadow1"
             [disabled]="!registerForm.valid"
             type="submit"
             value="Sign-up"

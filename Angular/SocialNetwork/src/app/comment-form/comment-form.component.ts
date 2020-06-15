@@ -1,5 +1,5 @@
 import { CommentService } from './../comment.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,8 +13,10 @@ export class CommentFormComponent implements OnInit {
   @Input('type') type;
   @Input('post') post;
 
+  @Output() newComment = new EventEmitter();
   image;
   placeholderText;
+  textValue = '';
   constructor(
     private httpClient: HttpClient,
     private sanitizer: DomSanitizer,
@@ -22,18 +24,19 @@ export class CommentFormComponent implements OnInit {
   ) {}
 
   submitCommentForm(input) {
-    let comment = {
+    let comment: any = {
       username: this.user.username,
       pId: this.post.id,
       body: input.body,
     };
     this.commentService.addComment(comment).subscribe((x) => console.log(x));
     window.alert('comment submitted');
+    comment.picLink = this.user.picLink;
+    this.newComment.emit(comment);
+    this.textValue = '';
   }
   ngOnInit(): void {
     this.getImage();
-    console.log('in comment form');
-    console.log(this.post);
   }
 
   getImage() {

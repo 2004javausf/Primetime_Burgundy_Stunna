@@ -10,6 +10,9 @@ export class CommentContainerComponent implements OnInit {
   @Input('comments') comments;
   @Input('post') post;
   // @Output() toggled = new EventEmitter();
+  pushComment(e) {
+    this.comments.push(e);
+  }
   constructor() {}
 
   ngOnInit(): void {}

@@ -17,6 +17,7 @@ export class UserContentInputFormComponent implements OnInit {
   selectedFile;
   placeholderText;
   image: SafeUrl;
+  textValue = '';
   constructor(
     private httpClient: HttpClient,
     private sanitizer: DomSanitizer,
@@ -27,17 +28,23 @@ export class UserContentInputFormComponent implements OnInit {
     if (this.selectedFile == null) {
       let post = {
         username: this.user.username,
-        post: input.body,
+        post: this.textValue,
       };
       this.postService.addPost(post).subscribe((x) => this.newPost.emit(x));
+      window.alert('successfully submitted');
+      this.textValue = '';
+      this.imagePreview = null;
     } else {
       let arr = this.selectedFile.split(',');
       let post = {
         username: this.user.username,
-        post: input.body,
+        post: this.textValue,
         image: arr[1],
       };
       this.postService.addPost(post).subscribe((x) => this.newPost.emit(x));
+      window.alert('successfully submitted');
+      this.textValue = '';
+      this.imagePreview = null;
     }
   }
   ngOnInit(): void {
@@ -50,6 +57,7 @@ export class UserContentInputFormComponent implements OnInit {
       reader.readAsDataURL(file);
       reader.onload = () => resolve(reader.result);
       reader.onerror = (error) => reject(error);
+      console.log(this.textValue);
     });
   }
   onFileChanged(event) {

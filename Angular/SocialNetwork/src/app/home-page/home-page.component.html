@@ -1,11 +1,13 @@
-<div class="ht1 color1">
+<div id="header-bar" class="p-3 color1">
   <div class="container">
     <div class="row">
       <div class="col-6">
         <img class="thelogo" src="../../assets/img/RevatureSquawk.jpg" />
       </div>
-      <div class="col-7 text-right">
-        <a class="text-info" (click)="onLogout()" href="#">🅻🅾🅶🅾🆄🆃</a>
+      <div class="col-6 text-right">
+        <a id="logout-btn" class="text-info" (click)="onLogout()" href="#"
+          >🅻🅾🅶🅾🆄🆃</a
+        >
       </div>
     </div>
   </div>
@@ -61,7 +63,7 @@
             <div *ngFor="let item of users">
               <button
                 (click)="changeFocus(item)"
-                class="btn btn-block btn-secondary"
+                class="btn btn-block btn-outline-light"
               >
                 {{ item.username }}
               </button>
@@ -91,16 +93,20 @@
         </ng-template>
         <ng-template [ngSwitchCase]="'UpdateProfile'">
           <div class="">
-            <update-profile [user]="user"></update-profile>
+            <update-profile
+              (newUser)="pushUser($event)"
+              [user]="user"
+            ></update-profile>
           </div>
         </ng-template>
         <ng-template [ngSwitchCase]="'SearchNetwork'">
           <div class="">
             <profile-information [focus]="focus"></profile-information>
-            <div *ngFor="let post of focusPosts">
+            <div class="post-bg1" *ngFor="let post of focusPosts">
               <focused-user-posts
                 [focus]="focus"
                 [post]="post"
+                [user]="user"
               ></focused-user-posts>
             </div>
           </div>

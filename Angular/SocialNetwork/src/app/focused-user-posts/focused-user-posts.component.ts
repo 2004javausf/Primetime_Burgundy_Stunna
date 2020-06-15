@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FocusedUserPostsComponent implements OnInit {
   @Input() post;
   @Input('focus') user;
+  @Input('user') currUser;
   constructor() {}
 
   ngOnInit(): void {}
